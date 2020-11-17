@@ -53,6 +53,8 @@ private:
 		int numberFormat = 0;
 		int numberFormatCorrection = 0;
 
+		//Displays what broad action the Player would like to do?
+
 		cout << endl << "Who would you like to attack?" << endl;
 		//Displays target options.
 		for (int i = 0; i < units.size(); i++) {
@@ -65,6 +67,7 @@ private:
 			}
 
 		}
+		//Pick target
 		cin >> target;
 		while (target < 0 || target >(units.size() - 1) - numberFormatCorrection) {
 			cout << "Pick a number between 0 and " << (units.size() - 1) - numberFormatCorrection << endl;
@@ -98,8 +101,6 @@ private:
 			cout << units[defender]->NAME << " took " << units[attacker]->damage << " damage! They now have " << units[defender]->HP << "HP.";
 		}
 		
-		
-		//cout << "Lol he kinda deserved that. " << units[defender]->NAME << " took " << units[attacker]->damage << " damage! They now have " << units[defender]->HP << "HP." ;
 
 		if (units[defender]->HP <= 0) {
 			units.erase(units.begin() + defender);

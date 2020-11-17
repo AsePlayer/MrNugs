@@ -20,9 +20,6 @@ int main()
 
 	Battle battle;
 
-	//vector<Unit> gayass {penis, pp};
-
-	
 
 	vector<unique_ptr<Unit>> goodUnits;
 	vector<unique_ptr<Unit>> badUnits;

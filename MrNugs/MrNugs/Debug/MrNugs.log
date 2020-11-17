@@ -3,15 +3,18 @@ c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.h(23): warning C4018: '<': 
 c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.h(38): warning C4018: '<': signed/unsigned mismatch
 c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.h(58): warning C4018: '<': signed/unsigned mismatch
 c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.h(69): warning C4018: '>': signed/unsigned mismatch
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.h(118): warning C4018: '<': signed/unsigned mismatch
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.h(122): warning C4018: '<': signed/unsigned mismatch
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.h(119): warning C4018: '<': signed/unsigned mismatch
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.h(123): warning C4018: '<': signed/unsigned mismatch
+  Mage.cpp
   MrNugs.cpp
 c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.h(23): warning C4018: '<': signed/unsigned mismatch
 c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.h(38): warning C4018: '<': signed/unsigned mismatch
 c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.h(58): warning C4018: '<': signed/unsigned mismatch
 c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.h(69): warning C4018: '>': signed/unsigned mismatch
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.h(118): warning C4018: '<': signed/unsigned mismatch
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.h(122): warning C4018: '<': signed/unsigned mismatch
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.h(119): warning C4018: '<': signed/unsigned mismatch
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.h(123): warning C4018: '<': signed/unsigned mismatch
 c:\users\aseplayer\source\repos\mrnugs\mrnugs\mrnugs.cpp(19): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Unit.cpp
+  Warrior.cpp
   Generating Code...
   MrNugs.vcxproj -> C:\Users\AsePlayer\source\repos\MrNugs\Debug\MrNugs.exe

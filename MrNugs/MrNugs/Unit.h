@@ -19,14 +19,10 @@ public:
 	int DEF = -1000;
 	int damage = -1000;
 
-	virtual void deezNuts() {
-		cout << "deez nuts" << endl;
-	}
+
 	virtual void decideDamage(string attackName) {
 		cout << "This is in the unit class. Something has gone terribly wrong";
 	}
-
-
 
 	virtual int randomNumber(int num, int plus) {
 

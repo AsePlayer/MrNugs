@@ -16,9 +16,6 @@ public:
 	Mage();
 	~Mage();
 
-	void deezNuts() {
-		cout << "What's gucci my gnuchi?" << endl;
-	}
 
 	void decideDamage(string attackName) {
 		if (attackName == "Attack") {
