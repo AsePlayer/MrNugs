@@ -1,0 +1,53 @@
+The purpose of this assignment is to practice:
+
+Implementing complex objects with C++.
+Writing classes that utilize inheritance and object composition.
+Manipulating instances of objects to simulate a text-based fantasy fighting game.
+Using polymorphism to create a common interface for a variety of objects.
+This assignment is the second part of a two-part assignment that creates a text-based fantasy arena combat game. For this assignment, you will implement the classes and the logic for your game.
+
+Begin this assignment by developing and testing your classes designed in Part One.
+
+Once the classes have been implemented, develop your driver program. Your driver program should:
+
+     1. Utilize functions to decomposed complex tasks.
+
+     2. Utilize polymorphic variables.
+
+     3. Follow the progression of ideas in your storyboard.
+
+     4. Consist of two main elements: a store to buy equipment (better weapons, better armor, more max-health) and an arena to fight for money.
+
+     5. Provide the ability to save your player progress (use file I/O for this).
+
+     6. Provide the ability to load your player through command line prompt.
+
+     7. Provide the ability for the player to view their character sheet at will.
+
+     8. Be fully commented.
+
+Your program should be written in C++. The input to your program should be from the keyboard. Player data should be read from a file. Program output should appear on the screen and player data should be saved to a file.
+
+Finally, create a video in which you run your program and describe your solution. Be sure to discuss how your program uses inheritance, object composition, and polymorphism. Your video should not exceed 6 minutes in length.
+
+Submit the following:
+
+     1. All .cpp and .h files zipped into a single file called FantasyFightingCode.zip
+
+     2. A text document titled Links.txt that contains a link to your Loom video (required) and a link to your GitHub repository (optional, as requested by your instructor)
+
+     3. A text document named README.txt that describes the format of your input/output files a Your program should be written in C++. The input to your program should be from the keyboard. Player data should be read from a file. Program output should appear on the screen and player data should be saved to a file.
+
+Finally, create a video in which you run your program and describe your solution. Be sure to discuss how your program uses inheritance, object composition, and polymorphism. Your video should not exceed 6 minutes in length.
+
+Submit the following:
+
+nd includes the type of data found in the file and the separator used
+BEFORE you submit, make sure:
+
+Every file contains your name and statement of own work.
+APA style is not required, but solid academic writing is expected.
+
+This assignment uses a rubric. Review the rubric prior to beginning the assignment to become familiar with the expectations for successful completion.
+
+You are not required to submit this assignment to LopesWrite.
