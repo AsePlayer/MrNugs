@@ -2,10 +2,12 @@
 #include "Mage.h"
 
 
-Mage::Mage()
+Mage::Mage(int lvl)
 {
+	this->LVL = lvl;
+	setLVL(lvl);
 	this->NAME = name;
-	this->type = type;
+	this->TYPE = type;
 	this->MAXHP = maxhp;
 	this->HP = hp;
 	this->MAXMP = maxmp;
@@ -15,6 +17,8 @@ Mage::Mage()
 
 	this->damage = 0;
 }
+
+
 
 
 Mage::~Mage()

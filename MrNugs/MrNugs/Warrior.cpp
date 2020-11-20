@@ -2,18 +2,22 @@
 #include "Warrior.h"
 
 
-Warrior::Warrior()
+Warrior::Warrior(int lvl)
 {
+	this->LVL = lvl;
+	setLVL(lvl);
 	this->NAME = name;
 	this->TYPE = type;
-	this->MAXHP = maxhp;
-	this->HP = hp;
-	this->MAXMP = maxmp;
-	this->MP = mp;
-	this->DMG = dmg;
-	this->DEF = def;
+	this->MAXHP = maxhp + (maxhp * (lvl * .1f));
+	this->HP = hp		+ (hp * (lvl * .1f));
+	this->MAXMP = maxmp + (maxmp * (lvl * .1f));
+	this->MP = mp		+ (mp * (lvl * .1f));
+	this->DMG = dmg		+ (dmg * (lvl * .1f));
+
+	this->DEF = def * lvl;
 
 	this->damage = 0;
+	
 }
 
 

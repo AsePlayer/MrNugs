@@ -11,6 +11,7 @@ public:
 
 	string NAME = "Unit";
 	string TYPE = "Default";
+	int LVL = -1000;
 	int MAXHP = -1000;
 	int HP = -1000;
 	int MAXMP = -1000;
@@ -24,9 +25,51 @@ public:
 		cout << "This is in the unit class. Something has gone terribly wrong";
 	}
 
-	virtual int randomNumber(int num, int plus) {
+	void setLVL(int lvl) {
+		LVL = lvl;
+	}
+
+	int randomNumber(int num, int plus) {
 
 		return (rand() % num + plus);
+	}
+
+	virtual string customAI(int HP) {
+		return "Default";
+	}
+
+	string getNAME() {
+		return NAME;
+	}
+	string getTYPE() {
+		return TYPE;
+	}
+	int getLVL() {
+		return LVL;
+	}
+	int getMAXHP() {
+		return MAXHP;
+	}
+	int getHP() {
+		return HP;
+	}
+	int getMAXMP() {
+		return MAXMP;
+	}
+	int getMP() {
+		return MP;
+	}
+	int getDMG() {
+		return DMG;
+	}
+	int getDEF() {
+		return DEF;
+	}
+	int getdamage() {
+		return damage;
+	}
+	void setHP(int hp) {
+		HP = hp;
 	}
 
 

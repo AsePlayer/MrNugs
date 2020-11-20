@@ -3,33 +3,17 @@
 
 #include "pch.h"
 #include <iostream>
-#include "Unit.h"
-#include "Warrior.h"
-#include "Mage.h"
-#include <vector>
-#include <memory>
-#include <ctime>
-#include <string>
-#include "Battle.h"
+#include "Game.h"
 using namespace std;
 
 
 int main()
 {
 	srand(time(NULL));
+	Game MrNugs;
 
-	Battle battle;
+	MrNugs.beginGame();
 
-
-	vector<unique_ptr<Unit>> goodUnits;
-	vector<unique_ptr<Unit>> badUnits;
-
-	goodUnits.emplace_back(new Warrior());
-
-	badUnits.emplace_back(new Mage());
-	badUnits.emplace_back(new Mage());
-
-	battle.requestBattle(move(goodUnits), move(badUnits));
 
 }
 
