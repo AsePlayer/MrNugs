@@ -22,7 +22,7 @@ public:
 	}
 	void decideDamage(string attackName) {
 		if (attackName == "Attack") {
-			damage = DMG + randomNumber(6, 0);
+			damage = DMG + randomNumber(5, 2);
 		}
 		else if (attackName == "Special" && MP >= 75) {
 			damage = (3 * DMG) + (2 * randomNumber(6, 4));

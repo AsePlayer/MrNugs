@@ -27,6 +27,7 @@ public:
 
 	void setLVL(int lvl) {
 		LVL = lvl;
+		cout << "lol he is lvl " << LVL;
 	}
 
 	int randomNumber(int num, int plus) {

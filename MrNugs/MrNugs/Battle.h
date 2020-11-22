@@ -9,6 +9,12 @@
 #include <ctime>
 #include <string>
 #include "Battle.h"
+
+#include <windows.h>
+//Change text color vvvvvvvvvvvvv
+//HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+//https://stackoverflow.com/questions/4053837/colorizing-text-in-the-console-with-c
+
 using namespace std;
 
 class Battle
@@ -70,6 +76,8 @@ private:
 		int numberFormatCorrection = 0;
 
 		//Displays what broad action the Player would like to do?
+
+
 
 
 		cout << endl << "Who would you like to attack?" << endl;

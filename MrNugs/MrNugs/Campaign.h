@@ -10,13 +10,24 @@
 #include <string>
 #include "Battle.h"
 #include "Campaign.h"
+#include "Weapon.h"
+
 class Campaign
 {
 private:
+	
 	Battle battle;
 	vector<unique_ptr<Unit>> goodUnits;
 	vector<unique_ptr<Unit>> badUnits;
 	string placeholder;
+	
+	Weapon Stick = Weapon("Stick", 5, "Yeah right. More like a twig at best...");
+	Weapon Stick2 = Weapon("Stick 2", 1500, "Okay now THIS is a stick...");
+	Weapon Stick3{ "bruh",69,"ok now this is epic" };
+	//Player instantiation. Create this with save and load data later.
+	Player *h = new Player(420, Stick2);
+	
+
 public:
 	Campaign();
 	~Campaign();
@@ -32,7 +43,7 @@ public:
 
 		case 1:
 			//Battle test
-			goodUnits.emplace_back(new Warrior(1));
+			goodUnits.emplace_back(new Warrior(h));
 
 			badUnits.emplace_back(new Mage(2));
 			badUnits.emplace_back(new Mage(2));

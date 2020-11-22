@@ -2,10 +2,17 @@
 #include "Warrior.h"
 
 
-Warrior::Warrior(int lvl)
+Warrior::Warrior(Player *p)
 {
-	this->LVL = lvl;
-	setLVL(lvl);
+
+	this->LVL = p->getLVL();
+
+	
+	this->lvl = p->getLVL();
+	Weapon temp = p->getWeapon();
+	this->weaponDamage = temp.getDamage();
+	cout << "WEAPON TIME BAYBEEEEE " << weaponDamage << endl;
+
 	this->NAME = name;
 	this->TYPE = type;
 	this->MAXHP = maxhp + (maxhp * (lvl * .1f));
