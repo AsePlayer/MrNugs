@@ -9,6 +9,10 @@ private:
 	//Player specific things
 	int lvl = 0;
 
+	vector<string> moves = {"Special", "Special2", "Special3"};
+	vector<int> movesMPCost = {20,111502};
+	vector<string> unlockedMoves = {"Special","Special2"};
+
 	int maxhp = 250;
 	int hp = maxhp;
 	int maxmp = 100;
@@ -20,22 +24,34 @@ private:
 public:
 	Warrior(Player *p);
 	~Warrior();
-	void setLVL(int level) {
-		lvl = level;
-	}
+
 	void decideDamage(string attackName) {
 		if (attackName == "Attack") {
-			damage = DMG + weaponDamage + randomNumber(6, 2);
+			setdamage(getDMG() + weaponDamage + randomNumber(6, 2));
 		}
-		else if (attackName == "Special" && MP >= 20) {
-			damage = DMG + weaponDamage + (2 * randomNumber(8, 4));
-			MP -= 20;
-			cout << "LVL: " << lvl;
+		else if (attackName == "Special" && getMP() >= 20) {
+			setdamage(getDMG() + weaponDamage + (2 * randomNumber(8, 4)));
+			setMP(getMP() - 20);
+		}
+		else if (attackName == "Special2" && getMP() >= 111502) {
+			setdamage(getDMG() + weaponDamage + (2 * randomNumber(8, 4)));
+			setMP(getMP() - 20);
+		}
+		else {
+			//Not enough MP
+			setdamage(-1);
 		}
 	}
 
 	int randomNumber(int num, int plus) {
 
 		return (rand() % num + plus);
+	}
+
+	vector<string> getMoves() {
+		return unlockedMoves;
+	}
+	vector<int> getMovesMPCost() {
+		return movesMPCost;
 	}
 };

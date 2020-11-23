@@ -17,16 +17,13 @@ public:
 	Mage(int lvl);
 	~Mage();
 
-	void setLVL(int level) {
-		lvl = level;
-	}
 	void decideDamage(string attackName) {
 		if (attackName == "Attack") {
-			damage = DMG + randomNumber(5, 2);
+			setdamage(getDMG() + randomNumber(5, 2));
 		}
-		else if (attackName == "Special" && MP >= 75) {
-			damage = (3 * DMG) + (2 * randomNumber(6, 4));
-			MP -= 75;
+		else if (attackName == "Special" && getMP() >= 75) {
+			setdamage((3 * getDMG()) + (2 * randomNumber(6, 4)));
+			setMP(getMP()- 75);
 		}
 	}
 	 string customAI(int HP) {
