@@ -6,12 +6,16 @@ private:
 	string name = "Mage";
 	string type = "Enemy";
 	int lvl = 0;
+	vector<Special> moves = { Special{"Special",75,"mage special description"}, Special{"mage Special2",500,"special description2"}, Special{"mage Special3",1500,"special description3"} };
+	vector<Special> unlockedMoves = { moves[0] };
+
 	int maxhp = 100;
 	int hp = maxhp;
 	int maxmp = 200;
 	int mp = maxmp;
 	int dmg = 10;
 	int def = 0;
+	
 
 public:
 	Mage(int lvl);
@@ -21,9 +25,9 @@ public:
 		if (attackName == "Attack") {
 			setdamage(getDMG() + randomNumber(5, 2));
 		}
-		else if (attackName == "Special" && getMP() >= 75) {
-			setdamage((3 * getDMG()) + (2 * randomNumber(6, 4)));
-			setMP(getMP()- 75);
+		else if (attackName == moves[0].getName() && getMP() >= moves[0].getMPCost()) {
+			setdamage(getDMG() + (2 * randomNumber(8, 4)));
+			setMP(getMP() - moves[0].getMPCost());
 		}
 	}
 	 string customAI(int HP) {

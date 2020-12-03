@@ -159,6 +159,7 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="Special.h" />
     <ClInclude Include="Unit.h" />
     <ClInclude Include="Warrior.h" />
     <ClInclude Include="Weapon.h" />
@@ -177,6 +178,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Special.cpp" />
     <ClCompile Include="Unit.cpp" />
     <ClCompile Include="Warrior.cpp" />
     <ClCompile Include="Weapon.cpp" />

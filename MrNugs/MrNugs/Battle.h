@@ -9,6 +9,7 @@
 #include <ctime>
 #include <string>
 #include "Battle.h"
+#include "Special.h"
 
 #include <windows.h>
 //Change text color vvvvvvvvvvvvv
@@ -26,7 +27,7 @@ private:
 	int enemies;
 	int recursiveCount = 0;
 	bool playerDied = false;
-	vector<string> moves;
+	vector<Special> moves;
 	
 	//Picks attack depending on which attacker is up.
 	void recieveBattle() {
@@ -58,7 +59,7 @@ private:
 				cout << "MP: " << units[0]->getMP() << "/" << units[0]->getMAXMP() << endl;
 				cout << "LV: " << units[0]->getLVL() << endl;
 				cout <<         "=====================" << endl << endl;
-					playerTurn(/* itemUsed = */ false);
+					playerTurn();
 				}
 				//else if enemy attack
 				else if (units[i]->getTYPE() == "Enemy" && units[i]->getHP() != 0) {
@@ -70,8 +71,14 @@ private:
 			//Delete enemies if they die.
 			for (int i = 0; i < units.size(); i++) {
 				if (units[i]->getHP() <= 0) {
-					units.erase(units.begin() + i);
-					enemies -= 1;
+					units[i]->setIsDead(true);				
+				}
+			}
+			for (int i = 0; i < units.size(); i++) {
+				//cout << endl << "This guy is dead. He actually has " << units[i]->getHP() << endl;
+				if (units[i]->getIsDead()) {
+				enemies -= 1;
+				units.erase(units.begin() + i);
 				}
 			}
 
@@ -80,12 +87,39 @@ private:
 	}
 	//Pick target to attack, pick attack, damage target. 
 	
-	void playerTurn(bool usedItem) {
-		recursiveCount++;
+	void playerTurn() {
+		bool exit = false;
+		bool itemUsed = false;
+
+		while (!exit) {
+			int turn = battleMenu(itemUsed);
+			//Back Button
+			if (turn == -1) {
+				
+			}
+			//Potion Used
+			else if (turn == 0) {
+				itemUsed = true;
+				battleMenu(itemUsed);
+			}
+			//Turn Finished
+			else if (turn == 1) {
+				exit = true;
+				break;
+			}
+		}
+
+		
+		//Prevents attack message appearing multiple times if player uses back command.
+
+		
+	}
+
+	int battleMenu(bool itemUsed) {
 		int numberFormat = 1;
 		int numberFormatCorrection = 0;
 		int option = 0;
-		bool itemUsed = usedItem;
+		//bool itemUsed = usedItem;
 		string attackUsed;
 
 		//Displays what broad action the Player would like to do?
@@ -115,93 +149,107 @@ private:
 			cin >> option;
 		}
 		moves = units[0]->getMoves();
-		
+
 		//Pick option's options
-		switch (option) {		
-											//[1] ATTACK
+		switch (option) {
+			//[1] ATTACK
 		case 1:
 			units[0]->decideDamage("Attack");
 			attackUsed = "Attack";
 			break;
-/*###################################################################################################*/
+			/*###################################################################################################*/
 
-											//[2] SPECIAL
+														//[2] SPECIAL
 		case 2:
 			cout << "Which Special would you like to do?" << endl;
 			for (int i = 0; i < moves.size(); i++) {
 				//Not enough MP, gray out
-				if (units[0]->getMovesMPCost()[i] > units[0]->getMP()){
+
+				if (moves[i].getMPCost() > units[0]->getMP()) {
 					SetConsoleTextAttribute(hConsole, 8);
 				}
 				else {
 					SetConsoleTextAttribute(hConsole, 7);
 				}
-				cout << "[" << i+1 << "] " << moves[i] << endl;
+				cout << "[" << i + 1 << "] " << moves[i].getName() << endl;
 			}
 			SetConsoleTextAttribute(hConsole, 7);
 			cout << endl << "[0] Back" << endl;
 			cin >> option;
 			while (option < 0 || option > moves.size() || cin.fail()) {
-				
+
 				cin.clear();
 				cin.ignore(256, '\n');
 				cout << "Pick a number between 1 and " << moves.size() << endl;
 				cin >> option;
 			}
 			if (option == 0) {
-				playerTurn(itemUsed);
+				return -1;
 
 			}
 			else {
-				units[0]->decideDamage(moves[option-1]);
+
 				//Not enough MP
-				while (units[0]->getdamage() == -1) {
+				while ((moves[option - 1].getMPCost()) > units[0]->getMP()) {
 
 					cin.clear();
 					cin.ignore(256, '\n');
+
 					cout << endl << "Not enough MP!" << endl << "Which Special would you like to do?" << endl;
 					cin >> option;
-					if (option == 0) {
-						playerTurn(itemUsed);
+					while (option < 0 || option > moves.size() || cin.fail()) {
+						cin.clear();
+						cin.ignore(256, '\n');
+						cout << "Pick a number between 1 and " << moves.size() << endl;
+						cin >> option;
 					}
-					units[0]->decideDamage(moves[option - 1]);
+					if (option == 0) {
+						return -1;
+						break;
+					}
+
 				}
-				
-				attackUsed = moves[option - 1];
+
+				units[0]->decideDamage(moves[option - 1].getName());
+				attackUsed = moves[option - 1].getName();
 				//cout << endl << "MOVE CHOSEN: " << moves[option - 1] << endl;
+
 			}
 			break;
 
-											//[3] ITEM
+			//[3] ITEM
 /*###################################################################################################*/
 
 		case 3:
 			//Pick Item. Let's player use 1 item per turn. Still gets to attack! :D
 
 			break;
-/*###################################################################################################*/
+			/*###################################################################################################*/
 
 		case 4:
 
 			break;
-/*###################################################################################################*/
+			/*###################################################################################################*/
 		default:
 			cout << "Something broke in the battle menu options.";
 		}
 
 		cout << endl << "Who would you like to attack?" << endl;
 		//Displays target options.
+		numberFormat = 1;
+		numberFormatCorrection = 0;
 		for (int i = 0; i < units.size(); i++) {
 			if (units[i]->getTYPE() == "Player" || units[i]->getTYPE() == "Ally") {
 				numberFormatCorrection++;
 			}
 			else {
-				cout << "[" << numberFormat << "]: " << units[i]->getNAME() << " (with " << units[i]->getHP() << " HP)" << endl;
+				cout << "[" << numberFormat << "]: " << units[i]->getNAME() << " (with " << units[i]->getHP() << "/" << units[i]->getMAXHP() << " HP)" << endl;
 				numberFormat++;
 			}
 
 		}
 		cout << endl << "[0] Back" << endl;
+
 		//Pick target
 		cin >> target;
 		//Don't allow anything not an int or not in the range.
@@ -213,20 +261,13 @@ private:
 		}
 
 		if (target == 0) {
-			playerTurn(itemUsed);
-		}
+			return -1;
 
-		
-		//Prevents attack message appearing multiple times if player uses back command.
-		if (recursiveCount == 1) {
-			dealDamage(0, target + numberFormatCorrection - 1, attackUsed);
-			recursiveCount--;
 		}
-		else {
-			recursiveCount--;
-		}
-		
+		dealDamage(0, target, attackUsed);
+		return 1;
 	}
+
 	//TODO: use target - numberFormatCorrection
 	void enemyTurn(int i) {
 		vector<int> target = {0};

@@ -2,6 +2,7 @@
 #include "pch.h"
 #include <iostream>
 #include <vector>
+#include "Special.h"
 using namespace std;
 class Unit
 {
@@ -10,9 +11,9 @@ class Unit
 	string TYPE = "Default";
 	string DESC = "Default Description";
 
-	vector<string> moves = { "Default" };
-	vector<int> movesMPCost = { -1000 };
-	vector<string> unlockedMoves = { "Default" };
+	vector<Special> moves = { Special{"Special",5,"special description"} };
+	vector<Special> unlockedMoves = { Special{"Special",5,"special description"} };
+
 
 	int LVL = -1000;
 	int MAXHP = -1000;
@@ -22,6 +23,7 @@ class Unit
 	int DMG = -1000;
 	int DEF = -1000;
 	int damage = -1000;
+	bool isDead = false;
 public:
 	Unit();
 	~Unit();
@@ -45,11 +47,8 @@ public:
 		return "Default";
 	}
 
-	virtual vector<string> getMoves() {
+	virtual vector<Special> getMoves() {
 		return unlockedMoves;
-	}
-	virtual vector<int> getMovesMPCost() {
-		return movesMPCost;
 	}
 
 	string getNAME() {
@@ -82,6 +81,9 @@ public:
 	int getdamage() {
 		return damage;
 	}
+	bool getIsDead() {
+		return isDead;
+	}
 	
 
 
@@ -112,6 +114,9 @@ public:
 	}
 	void setdamage(int passDamage) {
 		damage = passDamage;
+	}
+	void setIsDead(bool dead) {
+		isDead = dead;
 	}
 
 

@@ -25,7 +25,7 @@ private:
 	Weapon Stick2 = Weapon("Stick 2", 1500, "Okay now THIS is a stick...");
 
 	//Player instantiation. Create this with save and load data later.
-	Player *h = new Player("Mr. Nugs", 3, Stick2);
+	Player *h = new Player("Mr. Nugs", 3, Stick);
 	
 
 public:
