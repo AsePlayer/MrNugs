@@ -28,7 +28,7 @@ private:
 	Weapon Stick2 = Weapon("Stick 2", 1500, "Okay now THIS is a stick...", 100);
 
 	//Player instantiation. Create this with save and load data later.
-	Player *h = new Player("Mr. Nugs", 1, Stick, 100);
+	Player *h = new Player("Mr. Nugs", 1, Stick, 100, {});
 	Battle battle;
 	Shop shop;
 
@@ -45,18 +45,19 @@ public:
 			break;
 
 		case 1:
-			//Battle test
+			/*/Battle test
 			goodUnits.emplace_back(new Warrior(h));
 
 			badUnits.emplace_back(new NuggetGuard(1));
 			badUnits.emplace_back(new NuggetGuard(1));
 
-			battle.requestBattle(move(goodUnits), move(badUnits));
+			battle.requestBattle(move(goodUnits), move(badUnits));*/
 			break;
 		
 		case 2:
 			//Shop test
 			shop.requestShop(h);
+			break;
 
 		default:
 			cout << "Broke game";

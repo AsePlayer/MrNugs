@@ -17,7 +17,7 @@ private:
 	vector<Item> items = {};
 	//vector for items later
 public:
-	Player(string name, int lvl, Weapon weapon, int money);
+	Player(string name, int lvl, Weapon weapon, int money, vector<Item> items);
 	~Player();
 
 	string getName() {
@@ -50,6 +50,14 @@ public:
 
 	void setItems(vector<Item> items) {
 		this->items = items;
+	}
+
+	void addItem(Item item) {
+		items.push_back(item);
+	}
+
+	void removeItem(int itemIndex) {
+		items.erase(items.begin() + itemIndex);
 	}
 
 	void setMoney(int money) {
