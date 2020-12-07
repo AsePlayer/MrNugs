@@ -2,8 +2,7 @@
 #include "pch.h"
 #include <iostream>
 #include "Unit.h"
-#include "Warrior.h"
-#include "Mage.h"
+#include <Windows.h>
 #include <vector>
 #include <memory>
 #include <ctime>
@@ -65,7 +64,8 @@ private:
 				else if (units[i]->getTYPE() == "Enemy" && units[i]->getHP() != 0) {
 					enemyTurn(i);
 				}
-
+				Sleep(1500);
+				cout << endl;
 
 			}
 			//Delete enemies if they die.
@@ -75,7 +75,7 @@ private:
 				}
 			}
 			for (int i = 0; i < units.size(); i++) {
-				//cout << endl << "This guy is dead. He actually has " << units[i]->getHP() << endl;
+				
 				if (units[i]->getIsDead()) {
 				enemies -= 1;
 				units.erase(units.begin() + i);
@@ -83,7 +83,14 @@ private:
 			}
 
 		}
+		if (enemies == 0) {
+			victory();
+		}
 
+	}
+	void victory() {
+		
+		units[0]->updatePlayer(40);
 	}
 	//Pick target to attack, pick attack, damage target. 
 	
@@ -218,7 +225,7 @@ private:
 			break;
 
 			//[3] ITEM
-/*###################################################################################################*/
+			/*###################################################################################################*/
 
 		case 3:
 			//Pick Item. Let's player use 1 item per turn. Still gets to attack! :D
@@ -328,7 +335,7 @@ private:
 public:
 	Battle();
 	~Battle();
-
+	//Player *h = new Player("Mr. Nugs", 3, Stick, {});
 	//Sets up turn order.
 	void requestBattle(vector<unique_ptr<Unit>> goodUnits, vector<unique_ptr<Unit>> badUnits) {
 		enemies = 0;

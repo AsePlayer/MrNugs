@@ -155,10 +155,11 @@
     <ClInclude Include="Campaign.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Item.h" />
-    <ClInclude Include="Mage.h" />
+    <ClInclude Include="NuggetGuard.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="Shop.h" />
     <ClInclude Include="Special.h" />
     <ClInclude Include="Unit.h" />
     <ClInclude Include="Warrior.h" />
@@ -169,7 +170,7 @@
     <ClCompile Include="Campaign.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Item.cpp" />
-    <ClCompile Include="Mage.cpp" />
+    <ClCompile Include="NuggetGuard.cpp" />
     <ClCompile Include="MrNugs.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -178,6 +179,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Shop.cpp" />
     <ClCompile Include="Special.cpp" />
     <ClCompile Include="Unit.cpp" />
     <ClCompile Include="Warrior.cpp" />

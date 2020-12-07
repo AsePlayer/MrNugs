@@ -39,7 +39,6 @@ public:
 	}
 
 	int randomNumber(int num, int plus) {
-
 		return (rand() % num + plus);
 	}
 
@@ -49,6 +48,28 @@ public:
 
 	virtual vector<Special> getMoves() {
 		return unlockedMoves;
+	}
+
+	virtual void updatePlayer(int exp) {
+		
+	}
+
+	void heal(int value) {
+		if ((getHP() + value) > getMAXHP()) {
+			setHP(getMAXHP());
+		}
+		else {
+			setHP(getHP() + value);
+		}
+	}
+
+	void recover(int value) {
+		if ((getMP() + value) > getMAXMP()) {
+			setMP(getMAXMP());
+		}
+		else {
+			setMP(getMP() + value);
+		}
 	}
 
 	string getNAME() {

@@ -24,9 +24,6 @@
     <ClInclude Include="Warrior.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Mage.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Battle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -51,6 +48,12 @@
     <ClInclude Include="Special.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="NuggetGuard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Shop.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -63,9 +66,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Warrior.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Mage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Battle.cpp">
@@ -87,6 +87,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Special.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NuggetGuard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Shop.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

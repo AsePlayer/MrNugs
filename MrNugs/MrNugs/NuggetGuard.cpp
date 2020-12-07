@@ -1,17 +1,15 @@
 #include "pch.h"
-#include "Warrior.h"
+#include "NuggetGuard.h"
 
 
-Warrior::Warrior(Player *p)
+NuggetGuard::NuggetGuard(int lvl)
 {
-	player = p;
+	//this->LVL = lvl;
+	//setLVL(lvl);
 
-	this->setLVL(p->getLVL());
-	
-	this->weapon = p->getWeapon();
+	this->setLVL(lvl);
 
-	this->setNAME(p->getName());
-
+	this->setNAME(name);
 	this->setTYPE(type);
 	this->setMAXHP(maxhp + (maxhp * (lvl * .1f)));
 	this->setHP(hp + (hp * (lvl * .1f)));
@@ -22,10 +20,11 @@ Warrior::Warrior(Player *p)
 	this->setDEF(def * lvl);
 
 	this->setdamage(0);
-	
 }
 
 
-Warrior::~Warrior()
+
+
+NuggetGuard::~NuggetGuard()
 {
 }

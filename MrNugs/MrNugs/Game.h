@@ -2,8 +2,7 @@
 #include "pch.h"
 #include <iostream>
 #include "Unit.h"
-#include "Warrior.h"
-#include "Mage.h"
+
 #include <vector>
 #include <memory>
 #include <ctime>
@@ -21,7 +20,7 @@ public:
 		Battle battle;
 		Campaign controller;
 
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 3; i++) {
 			controller.progress(i);
 		}
 	}

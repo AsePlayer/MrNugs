@@ -3,7 +3,7 @@
 using namespace std;
 class Special
 {
-public:
+private:
 
 	string name;
 	string description;
