@@ -115,7 +115,6 @@ private:
 			//Potion Used
 			else if (turn == 0) {
 				itemUsed = true;
-				battleMenu(itemUsed);
 			}
 			//Turn Finished
 			else if (turn == 1) {

@@ -64,7 +64,7 @@ public:
 
 	void updatePlayer(int exp) {
 		player->updateEXP(exp);
-		*player = {player->getName(),player->getLVL(),player->getWeapon(), player->getMoney(), player->getItems()};
+		*player = {player->getName(),player->getLVL(),player->getWeapon(), player->getMoney(), items};
 		//Player *h = new Player("Mr. Nugs", 3, Stick, {});
 		
 	}
