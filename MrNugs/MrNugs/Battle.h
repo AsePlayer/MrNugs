@@ -298,7 +298,33 @@ private:
 			/*###################################################################################################*/
 
 		case 4:
+			for (int i = 0; i < units.size(); i++) {
+				cout << "[" << i + 1 << "] " << units[i]->getNAME() << endl;
+			}
+			cout << endl << "[0] Back" << endl << endl;
+			cin >> target;
 
+			//Don't allow anything not an int or not in the range.
+			while (target < 0 || target > units.size() || cin.fail()) {
+				cin.clear();
+				cin.ignore(256, '\n');
+				cout << "Pick a number between 1 and " << units.size() << endl;
+				cin >> target;
+			}
+
+			cout << endl;
+			cout << "NAME: " << units[target - 1]->getNAME()  << endl;
+			cout << "DESC: " << units[target - 1]->getDESC()  << endl;
+			cout << "LVL: "  << units[target - 1]->getLVL()   << endl;
+			cout << "MAXHP: "<< units[target - 1]->getMAXHP() << endl;
+			cout << "MAXMP: "<< units[target - 1]->getMAXMP() << endl;
+			cout << "DMG: "  << units[target - 1]->getDMG()   << endl;
+
+			cout << endl << "[0] Back" << endl << endl;
+
+			cin >> target;
+			return -1;
+					   			 
 			break;
 			/*###################################################################################################*/
 		default:

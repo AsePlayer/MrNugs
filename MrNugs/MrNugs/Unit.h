@@ -85,11 +85,15 @@ public:
 		}
 	}
 
+
 	string getNAME() {
 		return NAME;
 	}
 	string getTYPE() {
 		return TYPE;
+	}
+	string getDESC() {
+		return DESC;
 	}
 	int getLVL() {
 		return LVL;
@@ -127,7 +131,9 @@ public:
 	void setTYPE(string type) {
 		TYPE = type;
 	}
-
+	void setDESC(string desc) {
+		DESC = desc;
+	}
 	void setMAXHP(int maxhp) {
 		MAXHP = maxhp;
 	}

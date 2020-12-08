@@ -6,6 +6,7 @@ class Warrior : public Unit
 private:
 	string name = "Warrior";
 	string type = "Player";
+	string desc = "This is a Warrior.";
 	//Player specific things
 	int lvl = 0;
 

@@ -11,6 +11,7 @@ NuggetGuard::NuggetGuard(int lvl)
 
 	this->setNAME(name);
 	this->setTYPE(type);
+	this->setDESC(desc);
 	this->setMAXHP(maxhp + (maxhp * (lvl * .1f)));
 	this->setHP(hp + (hp * (lvl * .1f)));
 	this->setMAXMP(maxmp + (maxmp * (lvl * .1f)));

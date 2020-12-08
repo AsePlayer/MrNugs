@@ -13,8 +13,8 @@ Warrior::Warrior(Player *p)
 	this->weapon = p->getWeapon();
 
 	this->setNAME(p->getName());
-
 	this->setTYPE(type);
+	this->setDESC(desc);
 	this->setMAXHP(maxhp + (maxhp * (lvl * .05f)));
 	this->setHP(hp + (hp * (lvl * .05f)));
 	this->setMAXMP(maxmp + (maxmp * (lvl * .05f)));
