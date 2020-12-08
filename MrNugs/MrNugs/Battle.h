@@ -372,8 +372,6 @@ private:
 
 		string attackName = attackname;
 
-
-
 		cout << endl << "Level " << units[attack]->getLVL() << " " << units[attack]->getNAME() << " attacks " << units[defend]->getNAME() << " with " << attackName << ". ";
 		if (units[0]->getHP() <= 0) {
 			//Player death. call before he gets destroyed to prevent unforseen consequences. call battleDefeat() function.

@@ -29,7 +29,7 @@ private:
 	//Player instantiation. Create this with save and load data later.
 	Player *h = new Player("Mr. Nugs", 1, Weapon("Stick", 5, "Weapon #1", 50), 100, { Item("Ketchup Packet", 100, 50, "Heals 100 HP", "HP") });
 	Shop shop;
-
+	
 public:
 	Campaign();
 	~Campaign();
@@ -63,8 +63,8 @@ public:
 
 			goodUnits.emplace_back(new Warrior(h));
 
-			badUnits.emplace_back(new NuggetGuard(1));
-			badUnits.emplace_back(new NuggetGuard(1));
+			badUnits.emplace_back(new NuggetGuard(3));
+			badUnits.emplace_back(new NuggetGuard(2));
 
 			battle.requestBattle(move(goodUnits), move(badUnits));
 			break;
