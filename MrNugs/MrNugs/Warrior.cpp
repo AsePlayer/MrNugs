@@ -9,7 +9,7 @@ Warrior::Warrior(Player *p)
 	this->setLVL(p->getLVL());
 	setPlayerLVL(p->getLVL());
 	this->items = p->getItems();
-	cout << endl << endl << p->getItems().size() << endl << endl;
+
 	this->weapon = p->getWeapon();
 
 	this->setNAME(p->getName());

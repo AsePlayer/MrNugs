@@ -45,7 +45,7 @@ private:
 
 	//Battle loop
 	void battle() {
-		bool debug = true;
+		bool debug = false;
 		while (enemies != 0 && playerDied == false) {
 			//cout << "loop start with enemies " << enemies;
 

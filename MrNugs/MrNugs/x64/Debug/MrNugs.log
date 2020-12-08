@@ -1,7 +1,4 @@
-﻿  Battle.cpp
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.h(357): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.h(411): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-  Campaign.cpp
+﻿  Campaign.cpp
 c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.h(357): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
 c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.h(411): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
 c:\users\aseplayer\source\repos\mrnugs\mrnugs\shop.h(45): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
