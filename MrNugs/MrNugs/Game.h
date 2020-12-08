@@ -20,7 +20,7 @@ public:
 		Battle battle;
 		Campaign controller;
 
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 4; i++) {
 			controller.progress(i);
 		}
 	}

@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include "Special.h"
+#include "Item.h"
 using namespace std;
 class Unit
 {
@@ -38,6 +39,10 @@ public:
 		LVL = lvl;
 	}
 
+	virtual void setPlayerLVL(int lvl) {
+
+	}
+
 	int randomNumber(int num, int plus) {
 		return (rand() % num + plus);
 	}
@@ -48,6 +53,14 @@ public:
 
 	virtual vector<Special> getMoves() {
 		return unlockedMoves;
+	}
+
+	virtual vector<Item> getItems() {
+		return {};
+	}
+
+	virtual void removeItem(int num) {
+		
 	}
 
 	virtual void updatePlayer(int exp) {

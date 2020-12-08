@@ -18,6 +18,7 @@ using namespace std;
 class Shop
 {
 private:
+	Player test = Player("Mr. Nugs", 1, Weapon("Stick", 5, "Weapon #1", 50), 100, { Item("Mustard Packet", 100, 50, "Heals 100 MP", "MP"), Item("Mustard Packet", 100, 50, "Heals 100 MP", "MP") });
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	vector<Weapon> cheapWeapons = 
 	{ 
@@ -90,7 +91,7 @@ private:
 		cout << "\"What can I do for ya?\"" << endl << "(You currently have " << money << " gold)" << endl << endl;
 		cout << "[1] Weapons" << endl;
 		cout << "[2] Items" << endl;
-		cout << "[3] Deal of the Day" << endl;
+
 		cout << endl << "[0] Leave Shop" << endl << endl;
 
 		cin >> option;
@@ -239,8 +240,6 @@ private:
 
 			}
 
-		//[3] Deal of the day. (Will scrap if I don't have enough time).
-		case 3:
 
 		default:
 			return -2;
@@ -261,6 +260,7 @@ public:
 	void requestShop(Player *player) {
 		cout << endl << "Welcome to the Shop!" << endl << "====================" << endl << endl;
 		shop(player);
+
 	}
 };
 

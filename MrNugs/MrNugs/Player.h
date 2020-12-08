@@ -54,6 +54,7 @@ public:
 
 	void addItem(Item item) {
 		items.push_back(item);
+		cout << "I worked";
 	}
 
 	void removeItem(int itemIndex) {

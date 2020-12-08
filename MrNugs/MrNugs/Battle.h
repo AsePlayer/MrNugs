@@ -27,6 +27,7 @@ private:
 	int recursiveCount = 0;
 	bool playerDied = false;
 	vector<Special> moves;
+	vector<Item> items;
 	
 	//Picks attack depending on which attacker is up.
 	void recieveBattle() {
@@ -44,7 +45,7 @@ private:
 
 	//Battle loop
 	void battle() {
-
+		bool debug = true;
 		while (enemies != 0 && playerDied == false) {
 			//cout << "loop start with enemies " << enemies;
 
@@ -52,20 +53,27 @@ private:
 				//Print out character hp and mp
 
 				if (units[i]->getTYPE() == "Player") {
-				cout << endl << "=====================" << endl;
-				cout << units[0]->getNAME() << endl << endl;
-				cout << "HP: " << units[0]->getHP() << "/" << units[0]->getMAXHP() << endl;
-				cout << "MP: " << units[0]->getMP() << "/" << units[0]->getMAXMP() << endl;
-				cout << "LV: " << units[0]->getLVL() << endl;
-				cout <<         "=====================" << endl << endl;
+					cout << endl << "=====================" << endl;
+					cout << units[0]->getNAME() << endl << endl;
+					cout << "HP: " << units[0]->getHP() << "/" << units[0]->getMAXHP() << endl;
+					cout << "MP: " << units[0]->getMP() << "/" << units[0]->getMAXMP() << endl;
+					cout << "LV: " << units[0]->getLVL() << endl;
+					cout <<         "=====================" << endl << endl;
 					playerTurn();
+					if (!debug) {
+						Sleep(1500);
+					}
+					cout << endl;
 				}
 				//else if enemy attack
 				else if (units[i]->getTYPE() == "Enemy" && units[i]->getHP() != 0) {
 					enemyTurn(i);
+					if (!debug) {
+						Sleep(1500);
+					}
+					cout << endl;
 				}
-				Sleep(1500);
-				cout << endl;
+
 
 			}
 			//Delete enemies if they die.
@@ -228,7 +236,64 @@ private:
 			/*###################################################################################################*/
 
 		case 3:
-			//Pick Item. Let's player use 1 item per turn. Still gets to attack! :D
+			if (itemUsed) {
+				cout << endl << "Item already used this turn!" << endl;
+				return -1;
+			}
+			else {
+				items = units[0]->getItems();
+
+				for (int i = 0; i < items.size(); i++) {
+					cout << "[" << i + 1 << "] " << items[i].getName() << " (" << items[i].getDescription() << ")" << endl;
+				}
+
+				cout << endl << "[0] Back" << endl << endl;
+
+				cin >> option;
+				while (option < 0 || option > items.size() || cin.fail()) {
+					cin.clear();
+					cin.ignore(256, '\n');
+					cout << "Pick a number between 0 and " << items.size() << endl;
+					cin >> option;
+				}
+
+				if (option == 0) {
+					return -1;
+				}
+				else {
+					if (items[option - 1].getType() == "HP") {
+						if (units[0]->getHP() == units[0]->getMAXHP()) {
+							cout << "You already have MAX HP!" << endl << endl;
+							return -1;
+						}
+						units[0]->heal(items[option - 1].getValue());
+						if (units[0]->getHP() == units[0]->getMAXHP()) {
+							cout << "You healed to MAX HP! You now have " << units[0]->getHP() << "/" << units[0]->getMAXHP() << " HP!" << endl << endl;
+						}
+						else {
+							cout << "You healed " << items[option - 1].getValue() << " HP! You now have " << units[0]->getHP() << "/" << units[0]->getMAXHP() << " HP!" << endl << endl;
+						}
+						units[0]->removeItem(option - 1);
+					}
+					else if (items[option - 1].getType() == "MP") {
+						if (units[0]->getMP() == units[0]->getMAXMP()) {
+							cout << "You already have MAX MP!" << endl << endl;
+							return -1;
+						}
+						units[0]->recover(items[option - 1].getValue());
+						if (units[0]->getHP() == units[0]->getMAXHP()) {
+							cout << "You healed to MAX MP! You now have " << units[0]->getMP() << "/" << units[0]->getMAXMP() << " MP!" << endl << endl;
+						}
+						else {
+							cout << "You recovered " << items[option - 1].getValue() << " MP! You now have " << units[0]->getMP() << "/" << units[0]->getMAXMP() << " MP!" << endl << endl;
+						}
+						units[0]->removeItem(option - 1);
+					}
+
+					return 0;
+				}
+
+			}
 
 			break;
 			/*###################################################################################################*/
@@ -289,7 +354,7 @@ private:
 			pickTarget = 0;
 		}
 		else {
-			pickTarget = units[i]->randomNumber(target.size() - 1, 0);
+			pickTarget = units[i]->randomNumber(target.size()-1, 0);
 		}
 		
 		//if statement for custom AI
@@ -334,6 +399,9 @@ private:
 	
 public:
 	Battle();
+
+
+
 	~Battle();
 	//Player *h = new Player("Mr. Nugs", 3, Stick, {});
 	//Sets up turn order.

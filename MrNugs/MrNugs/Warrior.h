@@ -11,7 +11,7 @@ private:
 
 	vector<Special> moves = { Special{"Special",20,"special description"}, Special{"Special2",500,"special description2"}, Special{"Special3",1500,"special description3"} };
 	vector<Special> unlockedMoves = {moves[0], moves[1]};
-	vector<Item> items = { };
+	vector<Item> items = {};
 	
 	Player *player;
 	int maxhp = 250;
@@ -48,6 +48,18 @@ public:
 
 	vector<Special> getMoves() {
 		return unlockedMoves;
+	}
+
+	vector<Item> getItems() {
+		return items;
+	}
+	
+	void removeItem(int num) {
+		items.erase(items.begin() + num);
+	}
+
+	void setPlayerLVL(int lvl) {
+		this->lvl = lvl;
 	}
 
 	void updatePlayer(int exp) {
