@@ -261,6 +261,8 @@ public:
 		cout << endl << "Welcome to the Shop!" << endl << "====================" << endl << endl;
 		shop(player);
 
+		cout << endl << endl << "\"See ya later!\"" << endl << endl;
+		Sleep(1500);
 	}
 };
 

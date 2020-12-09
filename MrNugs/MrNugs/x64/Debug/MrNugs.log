@@ -1,27 +1,26 @@
-﻿  Battle.cpp
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.h(382): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.h(436): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-  Campaign.cpp
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.h(382): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.h(436): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+﻿  Campaign.cpp
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.h(391): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.h(445): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
 c:\users\aseplayer\source\repos\mrnugs\mrnugs\shop.h(45): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
 c:\users\aseplayer\source\repos\mrnugs\mrnugs\shop.h(46): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
 c:\users\aseplayer\source\repos\mrnugs\mrnugs\shop.h(54): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
 c:\users\aseplayer\source\repos\mrnugs\mrnugs\shop.h(59): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   Game.cpp
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.h(382): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.h(436): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.h(391): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.h(445): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
 c:\users\aseplayer\source\repos\mrnugs\mrnugs\shop.h(45): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
 c:\users\aseplayer\source\repos\mrnugs\mrnugs\shop.h(46): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
 c:\users\aseplayer\source\repos\mrnugs\mrnugs\shop.h(54): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
 c:\users\aseplayer\source\repos\mrnugs\mrnugs\shop.h(59): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   MrNugs.cpp
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.h(382): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.h(436): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.h(391): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.h(445): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
 c:\users\aseplayer\source\repos\mrnugs\mrnugs\shop.h(45): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
 c:\users\aseplayer\source\repos\mrnugs\mrnugs\shop.h(46): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
 c:\users\aseplayer\source\repos\mrnugs\mrnugs\shop.h(54): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
 c:\users\aseplayer\source\repos\mrnugs\mrnugs\shop.h(59): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
 c:\users\aseplayer\source\repos\mrnugs\mrnugs\mrnugs.cpp(13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Warrior.cpp
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\warrior.cpp(14): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
   Generating Code...
   MrNugs.vcxproj -> C:\Users\AsePlayer\source\repos\MrNugs\x64\Debug\MrNugs.exe

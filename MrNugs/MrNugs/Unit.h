@@ -23,6 +23,8 @@ class Unit
 	int MP = -1000;
 	int DMG = -1000;
 	int DEF = -1000;
+	int GOLD = -1000;
+	int XP = -1000;
 	int damage = -1000;
 	bool isDead = false;
 public:
@@ -63,7 +65,7 @@ public:
 		
 	}
 
-	virtual void updatePlayer(int exp) {
+	virtual void updatePlayer(int exp, int gold) {
 		
 	}
 
@@ -94,6 +96,12 @@ public:
 	}
 	string getDESC() {
 		return DESC;
+	}
+	int getXP() {
+		return XP;
+	}
+	int getGOLD() {
+		return GOLD;
 	}
 	int getLVL() {
 		return LVL;
@@ -133,6 +141,12 @@ public:
 	}
 	void setDESC(string desc) {
 		DESC = desc;
+	}
+	void setXP(int xp) {
+		XP = xp;
+	}
+	void setGOLD(int gold) {
+		GOLD = gold;
 	}
 	void setMAXHP(int maxhp) {
 		MAXHP = maxhp;

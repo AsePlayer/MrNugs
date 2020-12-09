@@ -17,6 +17,10 @@ private:
 	int mp = maxmp;
 	int dmg = 10;
 	int def = 0;
+
+	//Reward Values
+	int gold = 25;
+	int xp = 10;
 	
 
 public:

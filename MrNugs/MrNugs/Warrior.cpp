@@ -11,15 +11,21 @@ Warrior::Warrior(Player *p)
 	this->items = p->getItems();
 
 	this->weapon = p->getWeapon();
+	int lvlModifier = lvl * .05f;
 
 	this->setNAME(p->getName());
 	this->setTYPE(type);
 	this->setDESC(desc);
-	this->setMAXHP(maxhp + (maxhp * (lvl * .05f)));
-	this->setHP(hp + (hp * (lvl * .05f)));
-	this->setMAXMP(maxmp + (maxmp * (lvl * .05f)));
-	this->setMP(mp + (mp * (lvl * .05f)));
-	this->setDMG(dmg + (dmg * (lvl * .05f)));
+	
+	this->setGOLD(gold + (gold * lvlModifier));
+	this->setXP(xp + (xp * lvlModifier));
+	this->setMAXHP(maxhp + (maxhp * lvlModifier));
+	this->setHP(hp + (hp * lvlModifier));
+	this->setMAXMP(maxmp + (maxmp * lvlModifier));
+	this->setMP(mp + (mp * lvlModifier));
+	this->setDMG(dmg + (dmg * lvlModifier));
+
+
 
 	this->setDEF(def * lvl);
 

@@ -22,13 +22,11 @@ private:
 	vector<unique_ptr<Unit>> goodUnits;
 	vector<unique_ptr<Unit>> badUnits;
 	string placeholder;
-	
-	Weapon Stick = Weapon("Stick", 5, "Weapon #1", 50);
-	Weapon Stick2 = Weapon("Stick 2", 1500, "Okay now THIS is a stick...", 100);
 
 	//Player instantiation. Create this with save and load data later.
 	Player *h = new Player("Mr. Nugs", 1, Weapon("Stick", 5, "Weapon #1", 50), 100, { Item("Ketchup Packet", 100, 50, "Heals 100 HP", "HP") });
 	Shop shop;
+	
 	
 public:
 	Campaign();
@@ -36,7 +34,6 @@ public:
 
 	void progress(int progress) {
 		Battle battle;
-
 		switch (progress) {
 		case 0:
 			//Dialogue test
@@ -60,7 +57,7 @@ public:
 			break;
 
 		case 3:
-
+			cout << "2 Slightly Better Nugget Guards wish to avenge their fallen comrades." << endl;
 			goodUnits.emplace_back(new Warrior(h));
 
 			badUnits.emplace_back(new NuggetGuard(3));

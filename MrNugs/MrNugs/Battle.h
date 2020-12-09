@@ -22,20 +22,25 @@ class Battle
 private:
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	vector<unique_ptr<Unit>> units;
+	bool debug = false;
 	int target;
 	int enemies;
 	int recursiveCount = 0;
+	int xpReward;
+	int goldReward;
+
 	bool playerDied = false;
 	vector<Special> moves;
 	vector<Item> items;
 	
 	//Picks attack depending on which attacker is up.
 	void recieveBattle() {
+
 		for (int i = 0; i < units.size(); i++) {
-			//DEBUGGING PURPOSES
-			
-			//cout << "Level " << units[i]->getLVL() << " " << units[i]->getNAME() << " decides he feels like doing " << units[i]->getdamage() << " damage" << endl;
+			xpReward += units[i]->getXP();
+			goldReward += units[i]->getGOLD();
 		}
+
 		battle();
 	}
 
@@ -45,7 +50,6 @@ private:
 
 	//Battle loop
 	void battle() {
-		bool debug = false;
 		while (enemies != 0 && playerDied == false) {
 			//cout << "loop start with enemies " << enemies;
 
@@ -97,8 +101,9 @@ private:
 
 	}
 	void victory() {
-		
-		units[0]->updatePlayer(40);
+		cout << endl << "* * * * * * * * * * * * * * * *" << endl << "   You Won " << goldReward << " gold and " << xpReward << "XP!" << endl << "* * * * * * * * * * * * * * * *" << endl;
+		Sleep(1500);
+		units[0]->updatePlayer(xpReward,goldReward);
 	}
 	//Pick target to attack, pick attack, damage target. 
 	
@@ -157,6 +162,10 @@ private:
 
 		cin >> option;
 		while (option < 1 || option > 4 || cin.fail()) {
+			if (option == 7926) {
+				debug = true;
+				cout << endl << endl << "DEBUG MODE ACTIVATE" << endl << endl << endl;
+			}
 			cin.clear();
 			cin.ignore(256, '\n');
 			cout << "Pick a number between 1 and 4" << endl;
@@ -185,7 +194,7 @@ private:
 				else {
 					SetConsoleTextAttribute(hConsole, 7);
 				}
-				cout << "[" << i + 1 << "] " << moves[i].getName() << endl;
+				cout << "[" << i + 1 << "] " << moves[i].getName() << " - " << moves[i].getDescription() << endl;
 			}
 			SetConsoleTextAttribute(hConsole, 7);
 			cout << endl << "[0] Back" << endl;
@@ -340,7 +349,7 @@ private:
 				numberFormatCorrection++;
 			}
 			else {
-				cout << "[" << numberFormat << "]: " << units[i]->getNAME() << " (with " << units[i]->getHP() << "/" << units[i]->getMAXHP() << " HP)" << endl;
+				cout << "[" << numberFormat << "]: Level " << units[i]->getLVL() << " " << units[i]->getNAME() << " (with " << units[i]->getHP() << "/" << units[i]->getMAXHP() << " HP)" << endl;
 				numberFormat++;
 			}
 
