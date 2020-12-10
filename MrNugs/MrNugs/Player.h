@@ -15,13 +15,23 @@ private:
 	vector<int> expThresholds{0,10,50,100};
 	Weapon weapon = Weapon("default",0,"default constructor", 0);
 	vector<Item> items = {};
+	string characterClass;
+	int posInStory;
 	//vector for items later
 public:
-	Player(string name, int lvl, Weapon weapon, int money, vector<Item> items);
+	Player(string name, int lvl, Weapon weapon, int money, vector<Item> items, string characterClass, int posInStory);
 	~Player();
 
 	string getName() {
 		return name;
+	}
+
+	string getCharacterClass() {
+		return characterClass;
+	}
+
+	int getPosInStory() {
+		return posInStory;
 	}
 	
 	int getLVL() {
@@ -54,7 +64,7 @@ public:
 
 	void addItem(Item item) {
 		items.push_back(item);
-		cout << "I worked";
+		//cout << "I worked";
 	}
 
 	void removeItem(int itemIndex) {
@@ -73,6 +83,16 @@ public:
 			cout << endl << getName() << " leveled up! They are now level " << getLVL() << "!" << endl;
 		}
 	}
+
+	void setCharacterClass(string characterClass) {
+		this->characterClass = characterClass;
+	}
+
+	void setPosInStory(int posInStory) {
+		this->posInStory = posInStory;
+	}
+
+
 
 	
 };

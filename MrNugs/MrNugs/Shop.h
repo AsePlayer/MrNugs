@@ -18,7 +18,6 @@ using namespace std;
 class Shop
 {
 private:
-	Player test = Player("Mr. Nugs", 1, Weapon("Stick", 5, "Weapon #1", 50), 100, { Item("Mustard Packet", 100, 50, "Heals 100 MP", "MP"), Item("Mustard Packet", 100, 50, "Heals 100 MP", "MP") });
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	vector<Weapon> cheapWeapons = 
 	{ 
@@ -261,7 +260,7 @@ public:
 		cout << endl << "Welcome to the Shop!" << endl << "====================" << endl << endl;
 		shop(player);
 
-		cout << endl << endl << "\"See ya later!\"" << endl << endl;
+		cout << endl << "\"See ya later!\"" << endl << endl;
 		Sleep(1500);
 	}
 };

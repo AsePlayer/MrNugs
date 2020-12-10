@@ -12,6 +12,8 @@
 using namespace std;
 class Game
 {
+private:
+	Player *h = new Player("Mr. Nugs", 1, Weapon("Stick", 5, "Weapon #1", 50), 100, { Item("Ketchup Packet", 100, 50, "Heals 100 HP", "HP") }, "Warrior", 0);
 public:
 	Game();
 	~Game();
@@ -20,8 +22,8 @@ public:
 		Battle battle;
 		Campaign controller;
 
-		for (int i = 0; i < 4; i++) {
-			controller.progress(i);
+		while (h->getPosInStory() < 4) {
+			controller.progress(h);
 		}
 	}
 

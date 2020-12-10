@@ -12,9 +12,9 @@ class Unit
 	string TYPE = "Default";
 	string DESC = "Default Description";
 
-	vector<Special> moves = { Special{"Special",5,"special description"} };
-	vector<Special> unlockedMoves = { Special{"Special",5,"special description"} };
-
+	vector<Special> moves = { Special{"Special",5,"special description", "None", 0} };
+	vector<Special> unlockedMoves = { Special{"Special",5,"special description", "None", 0} };
+	int bleed, stun;
 
 	int LVL = -1000;
 	int MAXHP = -1000;
@@ -130,8 +130,19 @@ public:
 	bool getIsDead() {
 		return isDead;
 	}
+	vector<int> getStatusEffects() {
+		vector<int> statusEffects = { bleed,stun };
+		return statusEffects;
+	}
 	
-
+	void setStatusEffects(string effect, int amount) {
+		if (effect == "Stun") {
+			stun += amount;
+		}
+		if (effect == "Bleed") {
+			bleed += amount;
+		}
+	}
 
 	void setNAME(string name) {
 		NAME = name;

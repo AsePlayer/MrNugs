@@ -24,7 +24,7 @@ private:
 	string placeholder;
 
 	//Player instantiation. Create this with save and load data later.
-	Player *h = new Player("Mr. Nugs", 1, Weapon("Stick", 5, "Weapon #1", 50), 100, { Item("Ketchup Packet", 100, 50, "Heals 100 HP", "HP") });
+	
 	Shop shop;
 	
 	
@@ -32,9 +32,10 @@ public:
 	Campaign();
 	~Campaign();
 
-	void progress(int progress) {
+	void progress(Player *h) {
 		Battle battle;
-		switch (progress) {
+		int pos = h->getPosInStory();
+		switch (pos) {
 		case 0:
 			//Dialogue test
 			cout << "2 Nugget Guards wish to engage in the fisticuffs with you." << endl;
@@ -72,6 +73,10 @@ public:
 
 		goodUnits.clear();
 		badUnits.clear();
+
+		pos++;
+		h->setPosInStory(pos);
+		
 
 	}
 };

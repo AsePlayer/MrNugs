@@ -33,9 +33,9 @@ private:
 	vector<Special> moves;
 	vector<Item> items;
 	
-	//Picks attack depending on which attacker is up.
-	void recieveBattle() {
 
+	void recieveBattle() {
+		//Calculates Rewards
 		for (int i = 0; i < units.size(); i++) {
 			xpReward += units[i]->getXP();
 			goldReward += units[i]->getGOLD();
@@ -54,9 +54,16 @@ private:
 			//cout << "loop start with enemies " << enemies;
 
 			for (int i = 0; i < units.size(); i++) {
-				//Print out character hp and mp
-
-				if (units[i]->getTYPE() == "Player") {
+				vector<int> statusEffects = units[i]->getStatusEffects();
+				
+				//IF STUNNED
+				if (statusEffects[1] > 0) {
+					cout << endl << units[i]->getNAME() << " was stunned and lost their turn!" << endl;
+					units[i]->setStatusEffects("Stun", -1);
+					Sleep(1500);
+				}
+				else if (units[i]->getTYPE() == "Player") {
+					//Print out character hp and mp
 					cout << endl << "=====================" << endl;
 					cout << units[0]->getNAME() << endl << endl;
 					cout << "HP: " << units[0]->getHP() << "/" << units[0]->getMAXHP() << endl;
@@ -76,6 +83,14 @@ private:
 						Sleep(1500);
 					}
 					cout << endl;
+				}
+				//IF BLEEDING
+				if (statusEffects[0] > 0) {
+					int bleedDamage = units[i]->randomNumber(6, 4);
+					units[i]->setHP(units[i]->getHP() - bleedDamage);
+					cout << endl << units[i]->getNAME() << " is bleeding and took " << bleedDamage << " damage! They now have " << units[i]->getHP() << " HP!" << endl;
+					units[i]->setStatusEffects("Bleed", -1);
+					Sleep(1500);
 				}
 
 
@@ -140,6 +155,8 @@ private:
 		int option = 0;
 		//bool itemUsed = usedItem;
 		string attackUsed;
+		string statusEffect;
+		int duration;
 
 		//Displays what broad action the Player would like to do?
 		cout << "What would you like to do?" << endl << endl;
@@ -177,8 +194,11 @@ private:
 		switch (option) {
 			//[1] ATTACK
 		case 1:
+
 			units[0]->decideDamage("Attack");
 			attackUsed = "Attack";
+			statusEffect = "None";
+			duration = 0;
 			break;
 			/*###################################################################################################*/
 
@@ -194,7 +214,7 @@ private:
 				else {
 					SetConsoleTextAttribute(hConsole, 7);
 				}
-				cout << "[" << i + 1 << "] " << moves[i].getName() << " - " << moves[i].getDescription() << endl;
+				cout << "[" << i + 1 << "] " << moves[i].getName() << " (" << moves[i].getMPCost() << " MP)" << " - " << moves[i].getDescription() << endl;
 			}
 			SetConsoleTextAttribute(hConsole, 7);
 			cout << endl << "[0] Back" << endl;
@@ -235,6 +255,8 @@ private:
 
 				units[0]->decideDamage(moves[option - 1].getName());
 				attackUsed = moves[option - 1].getName();
+				statusEffect = moves[option - 1].getEffect();
+				duration = moves[option - 1].getDuration();
 				//cout << endl << "MOVE CHOSEN: " << moves[option - 1] << endl;
 
 			}
@@ -312,6 +334,9 @@ private:
 			}
 			cout << endl << "[0] Back" << endl << endl;
 			cin >> target;
+			if (target == 0) {
+				return -1;
+			}
 
 			//Don't allow anything not an int or not in the range.
 			while (target < 0 || target > units.size() || cin.fail()) {
@@ -370,7 +395,11 @@ private:
 			return -1;
 
 		}
-		dealDamage(0, target, attackUsed);
+		if (attackUsed == "Attack") {
+			statusEffect = "None";
+			duration = 0;
+		}
+		dealDamage(0, target, attackUsed, statusEffect, duration);
 		return 1;
 	}
 
@@ -395,18 +424,25 @@ private:
 		//defaults to default AI with else
 
 		string attackName = units[i]->customAI(units[pickTarget]->getHP());
-		dealDamage(i, pickTarget, attackName);
+		string statusEffect = "None";
+		int duration = 0;
+		if (attackName == "StunAttack") {
+			statusEffect = "Stun";
+			duration = 1;
+		}
+		dealDamage(i, pickTarget, attackName, statusEffect, duration);
 		
 	}
 
 	//Attacker deals damage to defender.
-	void dealDamage(int attacker, int defender, string attackname) {
+	void dealDamage(int attacker, int defender, string attackname, string statuseffect, int length) {
 		int attack = attacker;
 		int defend = defender;
-
 		string attackName = attackname;
+		string statusEffect = statuseffect;
+		int duration = length;
 
-		cout << endl << "Level " << units[attack]->getLVL() << " " << units[attack]->getNAME() << " attacks " << units[defend]->getNAME() << " with " << attackName << ". ";
+		cout << endl <<  units[attack]->getNAME() << " attacks " << units[defend]->getNAME() << " with " << attackName << ". ";
 		if (units[0]->getHP() <= 0) {
 			//Player death. call before he gets destroyed to prevent unforseen consequences. call battleDefeat() function.
 			gameOver();
@@ -418,7 +454,18 @@ private:
 		}
 		else {
 			units[defender]->setHP(units[defender]->getHP() - units[attacker]->getdamage());
-			cout << units[defender]->getNAME() << " took " << units[attacker]->getdamage() << " damage! They now have " << units[defender]->getHP() << "HP.";
+			cout << units[defender]->getNAME() << " took " << units[attacker]->getdamage() << " damage";
+			if (statusEffect != "None") {
+				if (statusEffect == "Stun") {
+					units[defender]->setStatusEffects("Stun", duration);
+					cout << " and was stunned";
+				}
+				if (statusEffect == "Bleed") {
+					units[defender]->setStatusEffects("Bleed", duration);
+					cout << " and is bleeding";
+				}
+			}
+			cout << "! They now have " << units[defender]->getHP() << "HP.";
 		}
 
 		

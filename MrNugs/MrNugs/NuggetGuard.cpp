@@ -6,19 +6,19 @@ NuggetGuard::NuggetGuard(int lvl)
 {
 	//this->LVL = lvl;
 	//setLVL(lvl);
+
 	this->setLVL(lvl);
-	int lvlModifier = lvl * .05f;
 
 	this->setNAME(name);
 	this->setTYPE(type);
 	this->setDESC(desc);
-	this->setGOLD(gold + (gold * lvlModifier));
-	this->setXP(xp + (xp * lvlModifier));
-	this->setMAXHP(maxhp + (maxhp * lvlModifier));
-	this->setHP(hp + (hp * lvlModifier));
-	this->setMAXMP(maxmp + (maxmp * lvlModifier));
-	this->setMP(mp + (mp * lvlModifier));
-	this->setDMG(dmg + (dmg * lvlModifier));
+	this->setGOLD(gold + (gold * ((lvl - 1) * .05f)));
+	this->setXP(xp + (xp * ((lvl - 1) * .05f)));
+	this->setMAXHP(maxhp + (maxhp * ((lvl - 1) * .05f)));
+	this->setHP(hp + (hp * ((lvl - 1) * .05f)));
+	this->setMAXMP(maxmp + (maxmp * ((lvl - 1) * .05f)));
+	this->setMP(mp + (mp * ((lvl - 1) * .05f)));
+	this->setDMG(dmg + (dmg * ((lvl - 1) * .05f)));
 
 	this->setDEF(def * lvl);
 

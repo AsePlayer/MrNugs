@@ -8,7 +8,12 @@ private:
 	string desc = "This is a Nugget Guard.";
 
 	int lvl = 0;
-	vector<Special> moves = { Special{"Special",75,"mage special description"}, Special{"mage Special2",500,"special description2"}, Special{"mage Special3",1500,"special description3"} };
+	vector<Special> moves = 
+	{ 
+		Special{"Special",75,"mage special description", "None",0}, 
+		Special{"mage Special2",500,"special description2", "None",0}, 
+		Special{"mage Special3",1500,"special description3", "None",0} 
+	};
 	vector<Special> unlockedMoves = { moves[0] };
 
 	int maxhp = 100;

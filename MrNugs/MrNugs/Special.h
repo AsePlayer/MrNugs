@@ -8,9 +8,11 @@ private:
 	string name;
 	string description;
 	int MPCost;
+	string effect;
+	int duration;
 
 public:
-	Special(string name, int MPCost, string description);
+	Special(string name, int MPCost, string description, string effect, int duration);
 	~Special();
 	string getName() {
 		return name;
@@ -20,6 +22,12 @@ public:
 	}
 	string getDescription() {
 		return description;
+	}
+	string getEffect() {
+		return effect;
+	}
+	int getDuration() {
+		return duration;
 	}
 };
 
