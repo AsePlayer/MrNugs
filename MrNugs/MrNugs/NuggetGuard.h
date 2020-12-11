@@ -12,8 +12,7 @@ private:
 	{ 
 		Special{"Special",75,"mage special description", "None",0}, 
 		Special{"mage Special2",500,"special description2", "None",0}, 
-		Special{"mage Special3",1500,"special description3", "None",0} 
-	};
+		Special{"mage Special3",1500,"special description3", "None",0} };
 	vector<Special> unlockedMoves = { moves[0] };
 
 	int maxhp = 100;
@@ -32,27 +31,7 @@ public:
 	NuggetGuard(int lvl);
 	~NuggetGuard();
 
-	void decideDamage(string attackName) {
-		if (attackName == "Attack") {
-			setdamage(getDMG() + randomNumber(5, 2));
-		}
-		else if (attackName == moves[0].getName() && getMP() >= moves[0].getMPCost()) {
-			setdamage(getDMG() + (2 * randomNumber(8, 4)));
-			setMP(getMP() - moves[0].getMPCost());
-		}
-	}
-	 string customAI(int HP) {
-		//cout << endl << "DEFAULT AI" << endl;
-		if (randomNumber(4, 0) == 0 && getMP() >= 75) {
-			decideDamage("Special");
-			//cout << "Special";
-			return "Special";
-		}
-		else {
-			decideDamage("Attack");
-			return "Attack";
-		}
-		
-	}
+	void decideDamage(string attackName);
+	string customAI(int HP);
 
 };

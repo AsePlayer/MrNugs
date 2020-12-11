@@ -14,17 +14,9 @@ private:
 public:
 	Weapon(string name, int damage, string description, int price);
 	~Weapon();
-	string getName() {
-		return name;
-	}
-	int getDamage() {
-		return damage;
-	}
-	string getDescription() {
-		return description;
-	}
-	int getPrice() {
-		return price;
-	}
+	string getName();
+	int getDamage();
+	string getDescription();
+	int getPrice();
 };
 

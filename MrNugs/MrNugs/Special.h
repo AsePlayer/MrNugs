@@ -14,20 +14,10 @@ private:
 public:
 	Special(string name, int MPCost, string description, string effect, int duration);
 	~Special();
-	string getName() {
-		return name;
-	}
-	int getMPCost() {
-		return MPCost;
-	}
-	string getDescription() {
-		return description;
-	}
-	string getEffect() {
-		return effect;
-	}
-	int getDuration() {
-		return duration;
-	}
+	string getName();
+	int getMPCost();
+	string getDescription();
+	string getEffect();
+	int getDuration();
 };
 

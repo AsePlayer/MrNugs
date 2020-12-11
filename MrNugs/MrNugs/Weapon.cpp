@@ -10,6 +10,18 @@ Weapon::Weapon(string name, int damage, string description, int price)
 	this->price = price;
 }
 
+string Weapon::getName() {
+	return name;
+}
+int Weapon::getDamage() {
+	return damage;
+}
+string Weapon::getDescription() {
+	return description;
+}
+int Weapon::getPrice() {
+	return price;
+}
 
 Weapon::~Weapon()
 {

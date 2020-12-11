@@ -4,6 +4,7 @@
 
 NuggetGuard::NuggetGuard(int lvl)
 {
+
 	//this->LVL = lvl;
 	//setLVL(lvl);
 
@@ -23,6 +24,29 @@ NuggetGuard::NuggetGuard(int lvl)
 	this->setDEF(def * lvl);
 
 	this->setdamage(0);
+}
+
+void NuggetGuard::decideDamage(string attackName) {
+	if (attackName == "Attack") {
+		setdamage(getDMG() + randomNumber(5, 2));
+	}
+	else if (attackName == moves[0].getName() && getMP() >= moves[0].getMPCost()) {
+		setdamage(getDMG() + (2 * randomNumber(8, 4)));
+		setMP(getMP() - moves[0].getMPCost());
+	}
+}
+string NuggetGuard::customAI(int HP) {
+	//cout << endl << "DEFAULT AI" << endl;
+	if (randomNumber(4, 0) == 0 && getMP() >= 75) {
+		decideDamage("Special");
+		//cout << "Special";
+		return "Special";
+	}
+	else {
+		decideDamage("Attack");
+		return "Attack";
+	}
+
 }
 
 

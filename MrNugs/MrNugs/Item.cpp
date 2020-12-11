@@ -11,6 +11,21 @@ Item::Item(string name, int value, int price, string description, string type)
 	this->type = type;
 }
 
+string Item::getName() {
+	return name;
+}
+int Item::getValue() {
+	return value;
+}
+int Item::getPrice() {
+	return price;
+}
+string Item::getDescription() {
+	return description;
+}
+string Item::getType() {
+	return type;
+}
 
 Item::~Item()
 {

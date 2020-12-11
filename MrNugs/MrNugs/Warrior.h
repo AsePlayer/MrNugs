@@ -39,49 +39,16 @@ public:
 	Warrior(Player *p);
 	~Warrior();
 
-	void decideDamage(string attackName) {
-		if (attackName == "Attack") {
-			setdamage(getDMG() + weapon.getDamage() + randomNumber(6, 2));
-		}
-		else if (attackName == moves[0].getName() && getMP() >= moves[0].getMPCost()) {
-			setdamage(getDMG() + weapon.getDamage() + (2 * randomNumber(8, 4)));
-			setMP(getMP() - moves[0].getMPCost());
-		}
-		else if (attackName == moves[1].getName() && getMP() >= moves[1].getMPCost()) {
-			setdamage(getDMG() + weapon.getDamage() + (randomNumber(4, 3)));
-			setMP(getMP() - moves[1].getMPCost());
-		}
-		else if (attackName == moves[2].getName() && getMP() >= moves[2].getMPCost()){
-			setdamage(getDMG() + weapon.getDamage() + (randomNumber(4, 3)));
-			setMP(getMP() - moves[2].getMPCost());
-		}
-		else {
-			//Not enough MP
-			setdamage(-1);
-		}
-	}
+	void decideDamage(string attackName);
 
-	vector<Special> getMoves() {
-		return unlockedMoves;
-	}
+	vector<Special> getMoves();
 
-	vector<Item> getItems() {
-		return items;
-	}
+	vector<Item> getItems();
 	
-	void removeItem(int num) {
-		items.erase(items.begin() + num);
-	}
+	void removeItem(int num);
 
-	void setPlayerLVL(int lvl) {
-		this->lvl = lvl;
-	}
+	void setPlayerLVL(int lvl);
 
-	void updatePlayer(int exp, int gold) {
-		player->updateEXP(exp);
-		*player =  {player->getName(),player->getLVL(),player->getWeapon(), player->getMoney() + gold, items, player->getCharacterClass(), player->getPosInStory()};
-		//Player *h = new Player("Mr. Nugs", 3, Stick, {});
-		
-	}
+	void updatePlayer(int exp, int gold);
 
 };

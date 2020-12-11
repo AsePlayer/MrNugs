@@ -22,75 +22,37 @@ public:
 	Player(string name, int lvl, Weapon weapon, int money, vector<Item> items, string characterClass, int posInStory);
 	~Player();
 
-	string getName() {
-		return name;
-	}
+	string getName();
 
-	string getCharacterClass() {
-		return characterClass;
-	}
+	string getCharacterClass();
 
-	int getPosInStory() {
-		return posInStory;
-	}
+	int getPosInStory();
 	
-	int getLVL() {
-		return lvl;
-	}
+	int getLVL();
 
-	Weapon getWeapon() {
-		return weapon;
-	}
+	Weapon getWeapon();
 
-	vector<Item> getItems() {
-		return items;
-	}
+	vector<Item> getItems();
 
-	int getMoney() {
-		return money;
-	}
+	int getMoney();
 
-	void setLVL(int lvl) {
-		this->lvl = lvl;
-	}
+	void setLVL(int lvl);
 
-	void setWeapon(Weapon weapon) {
-		this->weapon = weapon;
-	}
+	void setWeapon(Weapon weapon);
 
-	void setItems(vector<Item> items) {
-		this->items = items;
-	}
+	void setItems(vector<Item> items);
 
-	void addItem(Item item) {
-		items.push_back(item);
-		//cout << "I worked";
-	}
+	void addItem(Item item);
 
-	void removeItem(int itemIndex) {
-		items.erase(items.begin() + itemIndex);
-	}
+	void removeItem(int itemIndex);
 
-	void setMoney(int money) {
-		this->money = money;
-	}
+	void setMoney(int money);
 
-	void updateEXP(int exp) {
-		this->exp += exp;
-		if (this->exp >= expThresholds[getLVL()]) {
-			exp -= expThresholds[getLVL()];
-			setLVL(getLVL() + 1);
-			cout << endl << getName() << " leveled up! They are now level " << getLVL() << "!" << endl;
-		}
-	}
+	void updateEXP(int exp);
 
-	void setCharacterClass(string characterClass) {
-		this->characterClass = characterClass;
-	}
+	void setCharacterClass(string characterClass);
 
-	void setPosInStory(int posInStory) {
-		this->posInStory = posInStory;
-	}
+	void setPosInStory(int posInStory);
 
 
 

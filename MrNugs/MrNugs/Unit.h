@@ -31,158 +31,60 @@ public:
 	Unit();
 	~Unit();
 
+	virtual void decideDamage(string attackName);
+
+	void setLVL(int lvl);
+
+	virtual void setPlayerLVL(int lvl);
+
+	int randomNumber(int num, int plus);
+
+	virtual string customAI(int HP);
+
+	virtual vector<Special> getMoves();
+
+	virtual vector<Item> getItems();
+
+	virtual void removeItem(int num);
+
+	virtual void updatePlayer(int exp, int gold);
+
+	void heal(int value);
+
+	void recover(int value);
 
 
-	virtual void decideDamage(string attackName) {
-		cout << "This is in the unit class. Something has gone terribly wrong";
-	}
-
-	void setLVL(int lvl) {
-		LVL = lvl;
-	}
-
-	virtual void setPlayerLVL(int lvl) {
-
-	}
-
-	int randomNumber(int num, int plus) {
-		return (rand() % num + plus);
-	}
-
-	virtual string customAI(int HP) {
-		return "Default";
-	}
-
-	virtual vector<Special> getMoves() {
-		return unlockedMoves;
-	}
-
-	virtual vector<Item> getItems() {
-		return {};
-	}
-
-	virtual void removeItem(int num) {
-		
-	}
-
-	virtual void updatePlayer(int exp, int gold) {
-		
-	}
-
-	void heal(int value) {
-		if ((getHP() + value) > getMAXHP()) {
-			setHP(getMAXHP());
-		}
-		else {
-			setHP(getHP() + value);
-		}
-	}
-
-	void recover(int value) {
-		if ((getMP() + value) > getMAXMP()) {
-			setMP(getMAXMP());
-		}
-		else {
-			setMP(getMP() + value);
-		}
-	}
-
-
-	string getNAME() {
-		return NAME;
-	}
-	string getTYPE() {
-		return TYPE;
-	}
-	string getDESC() {
-		return DESC;
-	}
-	int getXP() {
-		return XP;
-	}
-	int getGOLD() {
-		return GOLD;
-	}
-	int getLVL() {
-		return LVL;
-	}
-	int getMAXHP() {
-		return MAXHP;
-	}
-	int getHP() {
-		return HP;
-	}
-	int getMAXMP() {
-		return MAXMP;
-	}
-	int getMP() {
-		return MP;
-	}
-	int getDMG() {
-		return DMG;
-	}
-	int getDEF() {
-		return DEF;
-	}
-	int getdamage() {
-		return damage;
-	}
-	bool getIsDead() {
-		return isDead;
-	}
-	vector<int> getStatusEffects() {
-		vector<int> statusEffects = { bleed,stun };
-		return statusEffects;
-	}
+	string getNAME();
+	string getTYPE();
+	string getDESC();
+	int getXP();
+	int getGOLD();
+	int getLVL();
+	int getMAXHP();
+	int getHP();
+	int getMAXMP();
+	int getMP();
+	int getDMG();
+	int getDEF();
+	int getdamage();
+	bool getIsDead();
+	vector<int> getStatusEffects();
 	
-	void setStatusEffects(string effect, int amount) {
-		if (effect == "Stun") {
-			stun += amount;
-		}
-		if (effect == "Bleed") {
-			bleed += amount;
-		}
-	}
+	void setStatusEffects(string effect, int amount);
 
-	void setNAME(string name) {
-		NAME = name;
-	}
-	void setTYPE(string type) {
-		TYPE = type;
-	}
-	void setDESC(string desc) {
-		DESC = desc;
-	}
-	void setXP(int xp) {
-		XP = xp;
-	}
-	void setGOLD(int gold) {
-		GOLD = gold;
-	}
-	void setMAXHP(int maxhp) {
-		MAXHP = maxhp;
-	}
-	void setHP(int hp) {
-		HP = hp;
-	}
-	void setMAXMP(int maxmp) {
-		MAXMP = maxmp;
-	}
-	void setMP(int mp) {
-		MP = mp;
-	}
-	void setDMG(int dmg) {
-		DMG = dmg;
-	}
-	void setDEF(int def) {
-		def = DEF;
-	}
-	void setdamage(int passDamage) {
-		damage = passDamage;
-	}
-	void setIsDead(bool dead) {
-		isDead = dead;
-	}
+	void setNAME(string name);
+	void setTYPE(string type);
+	void setDESC(string desc);
+	void setXP(int xp);
+	void setGOLD(int gold);
+	void setMAXHP(int maxhp);
+	void setHP(int hp);
+	void setMAXMP(int maxmp);
+	void setMP(int mp);
+	void setDMG(int dmg);
+	void setDEF(int def);
+	void setdamage(int passDamage);
+	void setIsDead(bool dead);
 
 
 
