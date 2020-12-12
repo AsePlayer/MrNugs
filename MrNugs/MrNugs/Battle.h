@@ -55,7 +55,8 @@ private:
 
 	//Attacker deals damage to multiple defenders.
 	void dealSplashDamage();
-	
+
+	int randomNumber(int num, int plus);
 public:
 	Battle();
 

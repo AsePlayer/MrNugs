@@ -23,8 +23,6 @@ void Battle::gameOver() {
 //Battle loop
 void Battle::battle() {
 	while (enemies != 0 && playerDied == false) {
-		//cout << "loop start with enemies " << enemies;
-
 		for (int i = 0; i < units.size(); i++) {
 			vector<int> statusEffects = units[i]->getStatusEffects();
 
@@ -93,12 +91,12 @@ void Battle::battle() {
 	}
 
 }
+
 void Battle::victory() {
 	cout << endl << "* * * * * * * * * * * * * * * *" << endl << "   You Won " << goldReward << " gold and " << xpReward << "XP!" << endl << "* * * * * * * * * * * * * * * *" << endl;
 	Sleep(1500);
 	units[0]->updatePlayer(xpReward, goldReward);
 }
-//Pick target to attack, pick attack, damage target. 
 
 void Battle::playerTurn() {
 	bool exit = false;
@@ -121,25 +119,21 @@ void Battle::playerTurn() {
 		}
 	}
 
-
-	//Prevents attack message appearing multiple times if player uses back command.
-
-
 }
 
 int Battle::battleMenu(bool itemUsed) {
 	int numberFormat = 1;
 	int numberFormatCorrection = 0;
 	int option = 0;
-	//bool itemUsed = usedItem;
 	string attackUsed;
 	string statusEffect;
 	int duration;
 
-	//Displays what broad action the Player would like to do?
+	//Displays what broad action the Player would like to do
 	cout << "What would you like to do?" << endl << endl;
 	cout << "[1] Attack" << endl;
 	cout << "[2] Special" << endl;
+	
 	if (itemUsed) {
 		//Gray out
 		SetConsoleTextAttribute(hConsole, 8);
@@ -151,9 +145,7 @@ int Battle::battleMenu(bool itemUsed) {
 	}
 	SetConsoleTextAttribute(hConsole, 7);
 	cout << "[4] Info" << endl;
-	SetConsoleTextAttribute(hConsole, 8);
-	cout << endl << "[0] Back" << endl;
-	SetConsoleTextAttribute(hConsole, 7);
+
 
 	cin >> option;
 	while (option < 1 || option > 4 || cin.fail()) {
@@ -170,8 +162,9 @@ int Battle::battleMenu(bool itemUsed) {
 
 	//Pick option's options
 	switch (option) {
-		//[1] ATTACK
+	
 	case 1:
+		//[1] ATTACK
 
 		units[0]->decideDamage("Attack");
 		attackUsed = "Attack";
@@ -180,12 +173,11 @@ int Battle::battleMenu(bool itemUsed) {
 		break;
 		/*###################################################################################################*/
 
-													//[2] SPECIAL
+												//[2] SPECIAL
 	case 2:
 		cout << "Which Special would you like to do?" << endl;
 		for (int i = 0; i < moves.size(); i++) {
 			//Not enough MP, gray out
-
 			if (moves[i].getMPCost() > units[0]->getMP()) {
 				SetConsoleTextAttribute(hConsole, 8);
 			}
@@ -198,7 +190,6 @@ int Battle::battleMenu(bool itemUsed) {
 		cout << endl << "[0] Back" << endl;
 		cin >> option;
 		while (option < 0 || option > moves.size() || cin.fail()) {
-
 			cin.clear();
 			cin.ignore(256, '\n');
 			cout << "Pick a number between 1 and " << moves.size() << endl;
@@ -206,7 +197,6 @@ int Battle::battleMenu(bool itemUsed) {
 		}
 		if (option == 0) {
 			return -1;
-
 		}
 		else {
 
@@ -216,7 +206,7 @@ int Battle::battleMenu(bool itemUsed) {
 				cin.clear();
 				cin.ignore(256, '\n');
 
-				cout << endl << "Not enough MP!" << endl << "Which Special would you like to do?" << endl;
+				cout << endl << "Not enough MP!" << endl << endl;
 				cin >> option;
 				while (option < 0 || option > moves.size() || cin.fail()) {
 					cin.clear();
@@ -233,16 +223,26 @@ int Battle::battleMenu(bool itemUsed) {
 
 			units[0]->decideDamage(moves[option - 1].getName());
 			attackUsed = moves[option - 1].getName();
-			statusEffect = moves[option - 1].getEffect();
-			duration = moves[option - 1].getDuration();
-			//cout << endl << "MOVE CHOSEN: " << moves[option - 1] << endl;
 
+			//Only trigger stun if RNG permits it. Otherwise, stunlocks are too easy.
+			if (moves[option - 1].getEffect() == "Stun"){
+				//50% chance, chance increases based on character level.
+				if (randomNumber(30, units[0]->getLVL()) > 15) {
+				statusEffect = moves[option - 1].getEffect();
+				}
+			}
+			else {
+				//If not stun, give the effect no matter what.
+				statusEffect = moves[option - 1].getEffect();
+			}
+		
+			duration = moves[option - 1].getDuration();
 		}
 		break;
 
-		//[3] ITEM
 		/*###################################################################################################*/
 
+													//[3] ITEM
 	case 3:
 		if (itemUsed) {
 			cout << endl << "Item already used this turn!" << endl;
@@ -306,6 +306,7 @@ int Battle::battleMenu(bool itemUsed) {
 		break;
 		/*###################################################################################################*/
 
+												//[4] INFO
 	case 4:
 		for (int i = 0; i < units.size(); i++) {
 			cout << "[" << i + 1 << "] " << units[i]->getNAME() << endl;
@@ -398,9 +399,6 @@ void Battle::enemyTurn(int i) {
 		pickTarget = units[i]->randomNumber(target.size() - 1, 0);
 	}
 
-	//if statement for custom AI
-	//defaults to default AI with else
-
 	string attackName = units[i]->customAI(units[pickTarget]->getHP());
 	string statusEffect = "None";
 	int duration = 0;
@@ -412,7 +410,7 @@ void Battle::enemyTurn(int i) {
 
 }
 
-//Attacker deals damage to defender.
+//Attacker deals damage to defender. Post-attack status effects are also applied.
 void Battle::dealDamage(int attacker, int defender, string attackname, string statuseffect, int length) {
 	int attack = attacker;
 	int defend = defender;
@@ -452,6 +450,10 @@ void Battle::dealDamage(int attacker, int defender, string attackname, string st
 	}
 
 
+}
+
+int Battle::randomNumber(int num, int plus) {
+	return (rand() % num + plus);
 }
 
 //Attacker deals damage to multiple defenders.

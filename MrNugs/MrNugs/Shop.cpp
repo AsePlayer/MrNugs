@@ -119,8 +119,8 @@ int Shop::displayDeals(Player *player) {
 			}
 
 			cout << "Sell your " << currentWeapon.getName() << " for " << currentWeapon.getPrice() / 2 << " gold and purchase " << weaponsForSale[option - 1].getName() << " for " << weaponsForSale[option - 1].getPrice() << " gold?" << endl;
-			cout << "[1] Confirm purchase" << endl;
-			cout << endl << "[0] Nevermind" << endl;
+			cout << endl << "[1] Confirm purchase" << endl;
+			cout << "[0] Nevermind" << endl;
 
 			cin >> confirm;
 			while (confirm < 0 || confirm > 1 || cin.fail()) {
