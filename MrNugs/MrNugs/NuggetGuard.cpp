@@ -49,7 +49,9 @@ string NuggetGuard::customAI(int HP) {
 
 }
 
-
+vector<Special> NuggetGuard::getMoves() {
+	return unlockedMoves;
+}
 
 
 NuggetGuard::~NuggetGuard()

@@ -153,6 +153,7 @@
   <ItemGroup>
     <ClInclude Include="Battle.h" />
     <ClInclude Include="Campaign.h" />
+    <ClInclude Include="FriendlyNuggetGuard.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="NuggetGuard.h" />
@@ -168,6 +169,7 @@
   <ItemGroup>
     <ClCompile Include="Battle.cpp" />
     <ClCompile Include="Campaign.cpp" />
+    <ClCompile Include="FriendlyNuggetGuard.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="NuggetGuard.cpp" />

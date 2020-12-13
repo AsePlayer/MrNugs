@@ -4,6 +4,7 @@
 #include "Unit.h"
 #include "Warrior.h"
 #include "NuggetGuard.h"
+#include "FriendlyNuggetGuard.h"
 #include <vector>
 #include <memory>
 #include <ctime>

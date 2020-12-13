@@ -18,7 +18,7 @@ void Campaign::progress(Player *h) {
 	case 1:
 		//Battle test
 		goodUnits.emplace_back(new Warrior(h));
-
+		//goodUnits.emplace_back(new FriendlyNuggetGuard(10));
 		badUnits.emplace_back(new NuggetGuard(1));
 		badUnits.emplace_back(new NuggetGuard(1));
 
@@ -34,7 +34,7 @@ void Campaign::progress(Player *h) {
 	case 3:
 		cout << "2 Slightly Better Nugget Guards wish to avenge their fallen comrades." << endl;
 		goodUnits.emplace_back(new Warrior(h));
-
+		
 		badUnits.emplace_back(new NuggetGuard(3));
 		badUnits.emplace_back(new NuggetGuard(2));
 

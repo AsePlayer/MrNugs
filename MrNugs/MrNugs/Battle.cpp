@@ -32,6 +32,7 @@ void Battle::battle() {
 				units[i]->setStatusEffects("Stun", -1);
 				Sleep(1500);
 			}
+			//If player attack
 			else if (units[i]->getTYPE() == "Player") {
 				//Print out character hp and mp
 				cout << endl << "=====================" << endl;
@@ -46,13 +47,17 @@ void Battle::battle() {
 				}
 				cout << endl;
 			}
-			//else if enemy attack
+			//If enemy attack
 			else if (units[i]->getTYPE() == "Enemy" && units[i]->getHP() != 0) {
 				enemyTurn(i);
 				if (!debug) {
 					Sleep(1500);
 				}
 				cout << endl;
+			}
+			//If ally attack
+			else if (units[i]->getTYPE() == "Ally") {
+
 			}
 			//IF BLEEDING
 			if (statusEffects[0] > 0) {
@@ -122,6 +127,7 @@ void Battle::playerTurn() {
 }
 
 int Battle::battleMenu(bool itemUsed) {
+	vector<Special> specials;
 	int numberFormat = 1;
 	int numberFormatCorrection = 0;
 	int option = 0;
@@ -331,7 +337,12 @@ int Battle::battleMenu(bool itemUsed) {
 		cout << "LVL: " << units[target - 1]->getLVL() << endl;
 		cout << "MAXHP: " << units[target - 1]->getMAXHP() << endl;
 		cout << "MAXMP: " << units[target - 1]->getMAXMP() << endl;
-		cout << "DMG: " << units[target - 1]->getDMG() << endl;
+		cout << "DMG: " << units[target - 1]->getDMG() << endl << endl;
+		cout << "Specials:" << endl;
+		specials = units[target - 1]->getMoves();
+		for (int i = 0; i < units[target - 1]->getMoves().size(); i++) {
+			cout << specials[i].getName() << " - " << specials[i].getDescription() << endl;
+		}
 
 		cout << endl << "[0] Back" << endl << endl;
 
@@ -382,7 +393,7 @@ int Battle::battleMenu(bool itemUsed) {
 	return 1;
 }
 
-//TODO: use target - numberFormatCorrection
+
 void Battle::enemyTurn(int i) {
 	vector<int> target = { 0 };
 	int pickTarget;

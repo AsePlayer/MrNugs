@@ -31,6 +31,7 @@ public:
 	NuggetGuard(int lvl);
 	~NuggetGuard();
 
+	vector<Special> getMoves();
 	void decideDamage(string attackName);
 	string customAI(int HP);
 
