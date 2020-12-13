@@ -54,7 +54,7 @@ private:
 	void dealDamage(int attacker, int defender, string attackname, string statuseffect, int length);
 
 	//Attacker deals damage to multiple defenders.
-	void dealSplashDamage();
+	void dealSplashDamage(int attacker, vector<int> defenders, string attackname, string statuseffect, int length);
 
 	int randomNumber(int num, int plus);
 public:

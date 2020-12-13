@@ -2,36 +2,22 @@
 Mr. Nugs
 </name>
 <lvl>
-2
+1
 </lvl>
 <weapon>
-Branch
-15
-"Weapon Description #2"
-125
+Toothpick
+5
+A used toothpick. One side is still wet... ew.
+0
 </weapon>
 <money>
-0
+100
 </money>
 <items>
-<item>
-Ketchup Packet
-100
-50
-Heals 100 HP
-HP
-</item>
-<item>
-Mustard Packet
-100
-50
-Recovers 100 MP
-MP
-</item>
 </items>
 <class>
 Warrior
 </class>
 <pos>
-3
+1
 </pos>

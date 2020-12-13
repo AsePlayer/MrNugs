@@ -8,6 +8,8 @@ Game::Game()
 }
 
 void Game::beginGame() {
+
+	
 	int option = 0;
 	//Player(string name, int lvl, Weapon weapon, int money, vector<Item> items, string characterClass, int posInStory)
 
@@ -23,7 +25,7 @@ void Game::beginGame() {
 	}
 
 	if (option == 1) {
-		//Character creation.
+		newGame();
 	}
 	else if (option == 2) {
 		loadGame();
@@ -48,7 +50,23 @@ void Game::beginGame() {
 }
 
 void Game::newGame() {
+	int option;
+	cout << "What class do you want to be?" << endl << endl;
+	for (int i = 0; i < classes.size(); i++) {
+		cout << "[" << i + 1 << "]: " << classes[i] << " - " << classDescriptions[i] << endl << endl;
+	}
 
+	cin >> option;
+	while (option < 1 || option > classes.size() || cin.fail()) {
+		cin.clear();
+		cin.ignore(256, '\n');
+		cout << "Pick a number between 1 and " << classes.size() << endl;
+		cin >> option;
+	}
+
+	h = new Player{"Mr. Nugs",1,Weapon("Toothpick", 5, "A used toothpick. One side is still wet... ew.", 0), 100 , {}, classes[option - 1], 0};
+	cout << endl << endl << "--- You have chosen the path of the " << classes[option - 1] << " ---" << endl << endl;
+	Sleep(1500);
 }
 
 void Game::saveGame() {

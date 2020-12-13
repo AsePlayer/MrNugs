@@ -24,17 +24,27 @@ Warrior::Warrior(Player *p)
 	this->setDMG(dmg + (dmg * ((lvl-1) * .05f)));
 
 	this->setDEF(def * lvl);
-
 	this->setdamage(0);
+
+	if (getLVL() > 0) {
+		unlockedMoves.push_back(moves[0]);
+	}
+	if (getLVL() > 3) {
+		unlockedMoves.push_back(moves[1]);
+	}
+	if (getLVL() > 6) {
+		unlockedMoves.push_back(moves[2]);
+	}
+
 }
 
 void Warrior::decideDamage(string attackName) {
 	if (attackName == "Attack") {
 		setdamage(getDMG() + weapon.getDamage() + randomNumber(6, 2));
 	}
-	else if (attackName == moves[0].getName() && getMP() >= moves[0].getMPCost()) {
-		setdamage(getDMG() + weapon.getDamage() + (2 * randomNumber(8, 4)));
-		setMP(getMP() - moves[0].getMPCost());
+	else if (attackName == moves[0].getName() && getMP() >= (0.5f * moves[0].getMPCost())) {
+		setdamage(getDMG() + (0.5f * weapon.getDamage()) + (2 * randomNumber(6, 4)));
+		setMP(getMP() - (0.5f * moves[0].getMPCost()));
 	}
 	else if (attackName == moves[1].getName() && getMP() >= moves[1].getMPCost()) {
 		setdamage(getDMG() + weapon.getDamage() + (randomNumber(4, 3)));

@@ -7,11 +7,28 @@ Battle::Battle()
 }
 
 void Battle::recieveBattle() {
+	int counter = 1;
+	bool original = true;
 	//Calculates Rewards
 	for (int i = 0; i < units.size(); i++) {
 		xpReward += units[i]->getXP();
 		goldReward += units[i]->getGOLD();
 	}
+	//Gives duplicate enemies numbers so they can be distinguished.
+	for (int i = 0; i < units.size(); i++) {
+		for (int j = 0; j < units.size(); j++) {
+			if (units[i]->getNAME() == units[j]->getNAME() && i != j) {
+				if (original == true) {
+					original = false;
+					units[i]->setNAME(units[i]->getNAME() + " " + to_string(1));
+				}
+				counter++;
+				units[j]->setNAME(units[j]->getNAME() + " " + to_string(counter));
+			}
+		}
+		counter = 1;
+	}
+
 
 	battle();
 }
@@ -68,12 +85,12 @@ void Battle::battle() {
 				}
 				else {
 					units[i]->setHP(units[i]->getHP() - bleedDamage);
-					cout << endl << units[i]->getNAME() << " is bleeding and took " << bleedDamage << " damage! They now have " << units[i]->getHP() << " HP!" << endl;
+					cout << units[i]->getNAME() << " is bleeding and took " << bleedDamage << " damage! They now have " << units[i]->getHP() << " HP!" << endl;
 				}
 				units[i]->setStatusEffects("Bleed", -1);
 				Sleep(1500);
 			}
-
+			cout << "---------------------------------------------------------------";
 
 		}
 		//Delete enemies if they die.
@@ -364,7 +381,7 @@ int Battle::battleMenu(bool itemUsed) {
 			numberFormatCorrection++;
 		}
 		else {
-			cout << "[" << numberFormat << "]: Level " << units[i]->getLVL() << " " << units[i]->getNAME() << " (with " << units[i]->getHP() << "/" << units[i]->getMAXHP() << " HP)" << endl;
+			cout << "[" << numberFormat << "]: " << units[i]->getNAME() << " (" << units[i]->getHP() << "/" << units[i]->getMAXHP() << " HP)" << endl;
 			numberFormat++;
 		}
 
@@ -390,6 +407,13 @@ int Battle::battleMenu(bool itemUsed) {
 		duration = 0;
 	}
 	dealDamage(0, target, attackUsed, statusEffect, duration);
+	if (attackUsed == "Bloodshed") {
+		Sleep(1000);
+		
+		units[0]->decideDamage(moves[option - 1].getName());
+		
+		dealDamage(0, randomNumber(units.size() - 1, numberFormatCorrection), attackUsed, statusEffect, duration);
+	}
 	return 1;
 }
 
@@ -468,7 +492,7 @@ int Battle::randomNumber(int num, int plus) {
 }
 
 //Attacker deals damage to multiple defenders.
-void Battle::dealSplashDamage() {
+void Battle::dealSplashDamage(int attacker, vector<int> defenders, string attackname, string statuseffect, int length) {
 
 }
 

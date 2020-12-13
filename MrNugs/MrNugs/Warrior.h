@@ -6,18 +6,18 @@ class Warrior : public Unit
 private:
 	string name = "Warrior";
 	string type = "Player";
-	string desc = "This is a Warrior.";
+	string desc = "The Warrior paves the path with the corpses of all who dare test his might. The Warrior can cause intense damage to multiple enemies, inflict stun, and buff himself.";
 	//Player specific things
 	int lvl = 0;
 
 	vector<Special> moves = 
 	{ 
-		Special{"Bloodshed",75,"Hack and slash at the enemy, causing major damage.","None",0}, 
-		Special{"Shield Bash",25,"Forcefully bash the enemy with your shield with the chance of causing stun.","Stun",1}, 
+		Special{"Bloodshed",70,"Hack and slash at the enemy with two powerful swings, injuring anyone who dares stand in your way.","None",0}, 
+		Special{"Shield Bash",25,"Strike the enemies head with an intense swipe of your shield. Chance to cause stun.","Stun",1}, 
 		Special{"Bleed test",5,"Time to bleed, boi","Bleed",3} 
 	};
 
-	vector<Special> unlockedMoves = {moves[0], moves[1], moves[2]};
+	vector<Special> unlockedMoves = {};
 	vector<Item> items = {};
 	Weapon weapon{ "Default",0,"Default Desc",0 };
 	

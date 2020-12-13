@@ -12,6 +12,8 @@ void Campaign::progress(Player *h) {
 	switch (pos) {
 	case 0:
 		//Dialogue test
+		cout << "Mr. Nugs was a man who loved to eat chicken nuggets." << endl;
+		Sleep(2000);
 		cout << "2 Nugget Guards wish to engage in the fisticuffs with you." << endl;
 		break;
 
