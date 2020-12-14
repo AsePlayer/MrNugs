@@ -38,9 +38,8 @@ void NuggetGuard::decideDamage(string attackName) {
 string NuggetGuard::customAI(int HP) {
 	//cout << endl << "DEFAULT AI" << endl;
 	if (randomNumber(4, 0) == 0 && getMP() >= 75) {
-		decideDamage("Special");
-		//cout << "Special";
-		return "Special";
+		decideDamage("BleedAttack");
+		return "BleedAttack";
 	}
 	else {
 		decideDamage("Attack");

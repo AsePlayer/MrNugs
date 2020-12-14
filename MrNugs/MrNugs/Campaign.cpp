@@ -8,7 +8,13 @@ Campaign::Campaign()
 
 void Campaign::progress(Player *h) {
 	Battle battle;
+	Shop shop;
 	int pos = h->getPosInStory();
+	Unit *playerCharacter;
+	//vector<unique_ptr<Unit>> goodUnits
+	if (h->getCharacterClass() == "Warrior") {
+		playerCharacter = new Warrior(h);
+	}
 	switch (pos) {
 	case 0:
 		//Dialogue test
@@ -19,7 +25,7 @@ void Campaign::progress(Player *h) {
 
 	case 1:
 		//Battle test
-		goodUnits.emplace_back(new Warrior(h));
+		goodUnits.emplace_back(playerCharacter);
 		//goodUnits.emplace_back(new FriendlyNuggetGuard(10));
 		badUnits.emplace_back(new NuggetGuard(1));
 		badUnits.emplace_back(new NuggetGuard(1));

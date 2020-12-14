@@ -29,7 +29,6 @@ void Battle::recieveBattle() {
 		counter = 1;
 	}
 
-
 	battle();
 }
 
@@ -42,7 +41,7 @@ void Battle::battle() {
 	while (enemies != 0 && playerDied == false) {
 		for (int i = 0; i < units.size(); i++) {
 			vector<int> statusEffects = units[i]->getStatusEffects();
-
+			//cout << "Bleed counter: " << statusEffects[0];
 			//IF STUNNED
 			if (statusEffects[1] > 0) {
 				cout << endl << units[i]->getNAME() << " was stunned and lost their turn!" << endl;
@@ -77,11 +76,13 @@ void Battle::battle() {
 
 			}
 			//IF BLEEDING
+			statusEffects = units[i]->getStatusEffects();
 			if (statusEffects[0] > 0) {
 				int bleedDamage = units[i]->randomNumber(6, 4);
-				if (units[i]->getHP() - bleedDamage <= 0) {
+				if (units[i]->getHP() - bleedDamage <= 0 && units[i]->getTYPE() != "Player") {
 					units[i]->setHP(0);
-					cout << endl << units[i]->getNAME() << " bled out!" << endl;
+					cout << units[i]->getNAME() << " bled out!" << endl;
+
 				}
 				else {
 					units[i]->setHP(units[i]->getHP() - bleedDamage);
@@ -95,18 +96,11 @@ void Battle::battle() {
 		}
 		//Delete enemies if they die.
 		for (int i = 0; i < units.size(); i++) {
-			if (units[i]->getHP() <= 0) {
-				units[i]->setIsDead(true);
-			}
-		}
-		for (int i = 0; i < units.size(); i++) {
-
-			if (units[i]->getIsDead()) {
+			if (units[i]->getHP() == 0 && units[i]->getTYPE() != "Player") {
 				enemies -= 1;
 				units.erase(units.begin() + i);
 			}
 		}
-
 	}
 	if (enemies == 0) {
 		victory();
@@ -292,9 +286,11 @@ int Battle::battleMenu(bool itemUsed) {
 				return -1;
 			}
 			else {
+				//If healing potion is used
 				if (items[option - 1].getType() == "HP") {
 					if (units[0]->getHP() == units[0]->getMAXHP()) {
 						cout << "You already have MAX HP!" << endl << endl;
+						Sleep(1500);
 						return -1;
 					}
 					units[0]->heal(items[option - 1].getValue());
@@ -306,9 +302,11 @@ int Battle::battleMenu(bool itemUsed) {
 					}
 					units[0]->removeItem(option - 1);
 				}
+				//If mana potion is used
 				else if (items[option - 1].getType() == "MP") {
 					if (units[0]->getMP() == units[0]->getMAXMP()) {
 						cout << "You already have MAX MP!" << endl << endl;
+						Sleep(1500);
 						return -1;
 					}
 					units[0]->recover(items[option - 1].getValue());
@@ -320,6 +318,57 @@ int Battle::battleMenu(bool itemUsed) {
 					}
 					units[0]->removeItem(option - 1);
 				}
+				//If hp and mana potion is used.
+				else if (items[option - 1].getType() == "HP&MP") {
+					if (units[0]->getHP() == units[0]->getMAXHP() && units[0]->getMP() == units[0]->getMAXMP()) {
+						cout << "You already have MAX HP and MP!" << endl << endl;
+						Sleep(1500);
+						return -1;
+					}
+					units[0]->heal(items[option - 1].getValue());
+					units[0]->recover(items[option - 1].getValue());
+					//MAX HP and MAX MANA
+					if (units[0]->getHP() == units[0]->getMAXHP() && units[0]->getMP() == units[0]->getMAXMP()) {
+						cout << "You healed to MAX HP and MP! You now have " << units[0]->getHP() << "/" << units[0]->getMAXHP() << " HP and " << units[0]->getMP() << "/" << units[0]->getMAXMP() << " MP!" << endl << endl;
+					}
+					//MAX HP but not MAX MANA
+					else if (units[0]->getHP() == units[0]->getMAXHP() && units[0]->getMP() != units[0]->getMAXMP()) {
+						cout << "You healed to MAX HP and recovered " << items[option - 1].getValue() << " MP! You now have " << units[0]->getHP() << "/" << units[0]->getMAXHP() << " HP and " << units[0]->getMP() << "/" << units[0]->getMAXMP() << " MP!" << endl << endl;
+					}
+					//MAX MANA but not MAX HP
+					else if (units[0]->getHP() != units[0]->getMAXHP() && units[0]->getMP() == units[0]->getMAXMP()) {
+						cout << "You healed " << items[option-1].getValue() << " HP and recovered to MAX MP! You now have " << units[0]->getHP() << "/" << units[0]->getMAXHP() << " HP and " << units[0]->getMP() << "/" << units[0]->getMAXMP() << " MP!" << endl << endl;
+					}
+					//Neither MAX HP or MAX MANA
+					else {
+						cout << "You healed " << items[option - 1].getValue() << " HP and recovered " << items[option - 1].getValue() << " MP! You now have " << units[0]->getHP() << "/" << units[0]->getMAXHP() << " HP and " << units[0]->getMP() << "/" << units[0]->getMAXMP() << " MP!" << endl << endl;
+					}
+					units[0]->removeItem(option - 1);
+				}
+				//If cure potion is used
+
+				else if (items[option - 1].getType() == "Cure") {
+					vector<int> effects = units[0]->getStatusEffects();
+
+					bool effected = false;
+					for (int i = 0; i < effects.size(); i++) {
+						if (effects[i] != 0) {
+							effected = true;
+						}
+					}
+					if (effected == false) {
+						cout << "You aren't suffering from any status effects!" << endl << endl;
+						Sleep(1500);
+						return -1;
+					}
+					else {
+						cout << "You have been cured of all status effects!" << endl << endl;
+
+						units[0]->cureStatusEffects();
+					}
+					units[0]->removeItem(option - 1);
+				}
+				Sleep(1500);
 
 				return 0;
 			}
@@ -408,11 +457,13 @@ int Battle::battleMenu(bool itemUsed) {
 	}
 	dealDamage(0, target, attackUsed, statusEffect, duration);
 	if (attackUsed == "Bloodshed") {
-		Sleep(1000);
+		if (enemies != 0) {
+			Sleep(1000);
+			units[0]->decideDamage(moves[option - 1].getName());
 		
-		units[0]->decideDamage(moves[option - 1].getName());
-		
-		dealDamage(0, randomNumber(units.size() - 1, numberFormatCorrection), attackUsed, statusEffect, duration);
+			dealDamage(0, randomNumber(units.size() - 1, numberFormatCorrection), attackUsed, statusEffect, duration);
+
+		}
 	}
 	return 1;
 }
@@ -441,6 +492,10 @@ void Battle::enemyTurn(int i) {
 		statusEffect = "Stun";
 		duration = 1;
 	}
+	if (attackName == "BleedAttack") {
+		statusEffect = "Bleed";
+		duration = 3;
+	}
 	dealDamage(i, pickTarget, attackName, statusEffect, duration);
 
 }
@@ -462,11 +517,10 @@ void Battle::dealDamage(int attacker, int defender, string attackname, string st
 		units[defender]->setHP(0);
 		vector<int> status = units[defender]->getStatusEffects();
 
-		if (status[0] != 0 && units[defender]->getHP() <= 0) {
-		}
-		else {
-			cout << units[defender]->getNAME() << " took " << units[attacker]->getdamage() << " damage and died!";
-		}
+		cout << units[defender]->getNAME() << " took " << units[attacker]->getdamage() << " damage and died!";
+		enemies -= 1;
+		units.erase(units.begin() + defend);
+		
 	}
 	else {
 		units[defender]->setHP(units[defender]->getHP() - units[attacker]->getdamage());

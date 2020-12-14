@@ -53,6 +53,7 @@ public:
 
 	void recover(int value);
 
+	void cureStatusEffects();
 
 	string getNAME();
 	string getTYPE();

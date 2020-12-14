@@ -35,12 +35,15 @@ private:
 
 	vector<Weapon> weaponsForSale;
 
-	vector<Item> items = 
-	{ 
-		Item("Ketchup Packet", 100, 50, "Heals 100 HP", "HP"), 
-		Item("Mustard Packet", 100, 50, "Recovers 100 MP", "MP"), 
-		Item("Ketchup Bottle", 250, 150, "Heals 250 HP", "HP"), 
-		Item("Mustard Bottle", 250, 150, "Recovers 250 MP", "MP") 
+	vector<Item> items =
+	{	//Item(string name, int value, int price, string description, string type);
+		Item("Ketchup Packet", 100, 75, "Heals 100 HP", "HP"),
+		Item("Mustard Packet", 100, 75, "Recovers 100 MP", "MP"),
+		Item("Thousand Island Packet", 250, 150, "Heals and Recovers 150 HP and MP","HP&MP"),
+		Item("Ketchup Bottle", 300, 250, "Heals 250 HP", "HP"),
+		Item("Mustard Bottle", 300, 300, "Recovers 250 MP", "MP"),
+		Item("Ranch Bottle", 0, 450, "Cures all status effects", "Cure"),
+		Item("Thousand Island Bottle", 500, 1000, "Heals and Recovers 500 HP and MP","HP&MP")
 	};
 
 	//Generate the two weapons (one cheap, one expensive) for sale today.

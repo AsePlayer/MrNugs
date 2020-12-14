@@ -70,10 +70,12 @@ void Player::setMoney(int money) {
 
 void Player::updateEXP(int exp) {
 	this->exp += exp;
-	if (this->exp >= expThresholds[getLVL()]) {
-		exp -= expThresholds[getLVL()];
-		setLVL(getLVL() + 1);
-		cout << endl << getName() << " leveled up! They are now level " << getLVL() << "!" << endl;
+	if (this->getLVL() < expThresholds.size()) {
+		if (this->exp >= expThresholds[getLVL()]) {
+			exp -= expThresholds[getLVL()];
+			setLVL(getLVL() + 1);
+			cout << endl << getName() << " leveled up! They are now level " << getLVL() << "!" << endl;
+		}
 	}
 }
 

@@ -10,8 +10,8 @@ private:
 	int lvl = 0;
 	vector<Special> moves = 
 	{ 
-		Special{"Special",75,"mage special description", "None",0}, 
-		Special{"mage Special2",500,"special description2", "None",0}, 
+		Special{"BleedAttack",75,"mage special description", "Bleed",0}, 
+		Special{"StunAttack",500,"special description2", "None",0}, 
 		Special{"mage Special3",1500,"special description3", "None",0} };
 	vector<Special> unlockedMoves = { moves[0] };
 

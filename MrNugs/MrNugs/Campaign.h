@@ -25,7 +25,7 @@ private:
 
 	//Player instantiation. Create this with save and load data later.
 	
-	Shop shop;
+	
 	
 	
 public:

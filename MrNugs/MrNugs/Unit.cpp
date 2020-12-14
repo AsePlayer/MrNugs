@@ -117,6 +117,11 @@ void Unit::setStatusEffects(string effect, int amount) {
 	}
 }
 
+void Unit::cureStatusEffects() {
+	this->stun = 0;
+	this->bleed = 0;
+}
+
 void Unit::setNAME(string name) {
 	NAME = name;
 }
