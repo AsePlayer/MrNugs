@@ -18,5 +18,6 @@ public:
 	int getDamage();
 	string getDescription();
 	int getPrice();
+	void increaseDamage();
 };
 

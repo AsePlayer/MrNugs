@@ -1,7 +1,6 @@
 #include "pch.h"
 #include "Unit.h"
 
-
 Unit::Unit()
 {
 }
@@ -160,6 +159,15 @@ void Unit::setdamage(int passDamage) {
 }
 void Unit::setIsDead(bool dead) {
 	isDead = dead;
+}
+
+Player* Unit::getPlayer() {
+	Player* h = new Player{ "Mr. Nugs", 1, Weapon("Used Toothpick", 5, "A used toothpick. One side is still wet... ew.", 2), 100 , {}, "Warrior", 0 };
+	return h;
+}
+
+void Unit::setWeapon() {
+
 }
 
 Unit::~Unit()

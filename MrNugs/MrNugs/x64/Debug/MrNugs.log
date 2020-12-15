@@ -1,5 +1,5 @@
 ﻿  Battle.cpp
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.cpp(464): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.cpp(485): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.cpp(560): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.cpp(468): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.cpp(489): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.cpp(574): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
   MrNugs.vcxproj -> C:\Users\AsePlayer\source\repos\MrNugs\x64\Debug\MrNugs.exe

@@ -40,7 +40,7 @@ Warrior::Warrior(Player *p)
 
 void Warrior::decideDamage(string attackName) {
 	if (attackName == "Attack") {
-		setdamage(getDMG() + weapon.getDamage() + randomNumber(6, 2));
+		setdamage(weapon.getDamage());
 	}
 	else if (attackName == moves[0].getName() && getMP() >= (0.5f * moves[0].getMPCost())) {
 		setdamage(getDMG() + (0.5f * weapon.getDamage()) + (2 * randomNumber(6, 4)));
@@ -81,6 +81,15 @@ void Warrior::updatePlayer(int exp, int gold) {
 	*player = { player->getName(),player->getLVL(),player->getWeapon(), player->getMoney() + gold, items, player->getCharacterClass(), player->getPosInStory() };
 	//Player *h = new Player("Mr. Nugs", 3, Stick, {});
 
+}
+
+void Warrior::setWeapon(Weapon weapon) {
+	this->weapon = weapon;
+	cout << weapon.getDamage() << "&^$$*&%^";
+}
+
+Player* Warrior::getPlayer() {
+	return player;
 }
 
 

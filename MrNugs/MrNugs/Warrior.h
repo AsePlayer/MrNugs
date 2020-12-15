@@ -51,4 +51,8 @@ public:
 
 	void updatePlayer(int exp, int gold);
 
+	Player* getPlayer();
+
+	void setWeapon(Weapon weapon);
+
 };

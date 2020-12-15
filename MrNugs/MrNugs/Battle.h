@@ -29,6 +29,8 @@ private:
 	int xpReward;
 	int goldReward;
 
+	int sliceUp;
+
 	bool playerDied = false;
 	vector<Special> moves;
 	vector<Item> items;

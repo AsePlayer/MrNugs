@@ -4,10 +4,10 @@
 #include <vector>
 #include "Special.h"
 #include "Item.h"
+#include "Player.h"
 using namespace std;
 class Unit
 {
-
 	string NAME = "Unit";
 	string TYPE = "Default";
 	string DESC = "Default Description";
@@ -49,6 +49,8 @@ public:
 
 	virtual void updatePlayer(int exp, int gold);
 
+	virtual Player* getPlayer();
+
 	void heal(int value);
 
 	void recover(int value);
@@ -87,6 +89,8 @@ public:
 	void setdamage(int passDamage);
 	void setIsDead(bool dead);
 
+	void buffWeapon();
+	virtual void setWeapon();
 
 
 };

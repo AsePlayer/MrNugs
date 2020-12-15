@@ -22,6 +22,9 @@ string Weapon::getDescription() {
 int Weapon::getPrice() {
 	return price;
 }
+void Weapon::increaseDamage() {
+	this->damage += 1;
+}
 
 Weapon::~Weapon()
 {

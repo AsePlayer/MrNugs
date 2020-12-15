@@ -103,6 +103,10 @@ void Battle::battle() {
 		}
 	}
 	if (enemies == 0) {
+		if (sliceUp > 0) {
+			Sleep(1500);
+			cout << endl << "Your Self-sharpening Knife (Calphalon, The Blade of Infinite Trials)'s sharpened with the slicing of its victims. Damage increased by " << sliceUp << "!" << endl;
+		}
 		victory();
 	}
 
@@ -310,7 +314,7 @@ int Battle::battleMenu(bool itemUsed) {
 						return -1;
 					}
 					units[0]->recover(items[option - 1].getValue());
-					if (units[0]->getHP() == units[0]->getMAXHP()) {
+					if (units[0]->getMP() == units[0]->getMAXMP()) {
 						cout << "You healed to MAX MP! You now have " << units[0]->getMP() << "/" << units[0]->getMAXMP() << " MP!" << endl << endl;
 					}
 					else {
@@ -518,6 +522,16 @@ void Battle::dealDamage(int attacker, int defender, string attackname, string st
 		vector<int> status = units[defender]->getStatusEffects();
 
 		cout << units[defender]->getNAME() << " took " << units[attacker]->getdamage() << " damage and died!";
+		Player* player = units[0]->getPlayer();
+		Weapon weapon = player->getWeapon();
+		
+		if (attackName == "Attack" && weapon.getName() == "Self-sharpening Knife (Calphalon, The Blade of Infinite Trials)") {
+			
+			weapon.increaseDamage();
+			player->setWeapon(weapon);
+			sliceUp++;
+			//cout << "New damage: " << weapon.getDamage() << endl << endl;
+		}
 		enemies -= 1;
 		units.erase(units.begin() + defend);
 		
