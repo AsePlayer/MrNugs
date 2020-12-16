@@ -103,7 +103,7 @@ bool Unit::getIsDead() {
 	return isDead;
 }
 vector<int> Unit::getStatusEffects() {
-	vector<int> statusEffects = { bleed, stun };
+	vector<int> statusEffects = { bleed, stun, poison, confusion };
 	return statusEffects;
 }
 
@@ -114,11 +114,19 @@ void Unit::setStatusEffects(string effect, int amount) {
 	if (effect == "Bleed") {
 		bleed += amount;
 	}
+	if (effect == "Poison") {
+		poison += amount;
+	}
+	if (effect == "Confusion") {
+		confusion += amount;
+	}
 }
 
 void Unit::cureStatusEffects() {
 	this->stun = 0;
 	this->bleed = 0;
+	this->poison = 0;
+	this->confusion = 0;
 }
 
 void Unit::setNAME(string name) {

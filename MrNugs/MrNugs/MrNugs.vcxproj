@@ -157,6 +157,7 @@
     <ClInclude Include="FriendlyNuggetGuard.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="Mage.h" />
     <ClInclude Include="NuggetGuard.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Player.h" />
@@ -174,6 +175,7 @@
     <ClCompile Include="FriendlyNuggetGuard.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Item.cpp" />
+    <ClCompile Include="Mage.cpp" />
     <ClCompile Include="NuggetGuard.cpp" />
     <ClCompile Include="MrNugs.cpp" />
     <ClCompile Include="pch.cpp">

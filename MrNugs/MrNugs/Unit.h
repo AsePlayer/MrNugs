@@ -14,7 +14,7 @@ class Unit
 
 	vector<Special> moves = { Special{"Special",5,"special description", "None", 0} };
 	vector<Special> unlockedMoves = { Special{"Special",5,"special description", "None", 0} };
-	int bleed, stun;
+	int bleed, stun, poison, confusion;
 
 	int LVL = -1000;
 	int MAXHP = -1000;

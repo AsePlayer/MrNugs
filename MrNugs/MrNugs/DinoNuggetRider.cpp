@@ -31,7 +31,7 @@ void DinoNuggetRider::decideDamage(string attackName) {
 		setdamage(getDMG() + randomNumber(5, 8));
 	}
 	else if (attackName == moves[0].getName() && getMP() >= moves[0].getMPCost()) {
-		setdamage(getDMG() + (2 * randomNumber(8, 4)));
+		setdamage(getDMG() + (2 * randomNumber(6, 4)));
 		setMP(getMP() - moves[0].getMPCost());
 	}
 	else if (attackName == moves[1].getName() && getMP() >= moves[1].getMPCost()) {

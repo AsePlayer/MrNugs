@@ -51,7 +51,8 @@ void Warrior::decideDamage(string attackName) {
 		setMP(getMP() - moves[1].getMPCost());
 	}
 	else if (attackName == moves[2].getName() && getMP() >= moves[2].getMPCost()) {
-		setdamage(getDMG() + weapon.getDamage() + (randomNumber(4, 3)));
+		float rage = (float(getHP()) / float(getMAXHP()));
+		setdamage(getDMG() + weapon.getDamage() + (4/float(rage)));
 		setMP(getMP() - moves[2].getMPCost());
 	}
 	else {

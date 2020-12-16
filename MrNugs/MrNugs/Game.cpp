@@ -88,7 +88,7 @@ void Game::newGame() {
 	}
 
 	h = new Player{"Mr. Nugs", 1, Weapon("Used Toothpick", 5, "A used toothpick. One side is still wet... ew.", 2), 100 , {}, classes[option - 1], 0};
-	cout << endl << endl << "--- You have chosen the path of the " << classes[option - 1] << " ---" << endl << endl;
+	cout << endl << "--- You have chosen the path of the " << classes[option - 1] << " ---" << endl << endl;
 	Sleep(1500);
 }
 

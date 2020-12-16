@@ -45,7 +45,8 @@ void Battle::battle() {
 			//cout << "Bleed counter: " << statusEffects[0];
 			//IF STUNNED
 			if (statusEffects[1] > 0) {
-				cout << endl << units[i]->getNAME() << " was stunned and lost their turn!" << endl;
+				cout << endl << units[i]->getNAME() << " was stunned and lost their turn!";
+				cout << endl << "---------------------------------------------------------------";
 				units[i]->setStatusEffects("Stun", -1);
 				Sleep(1500);
 			}
@@ -59,19 +60,29 @@ void Battle::battle() {
 				cout << "LV: " << units[0]->getLVL() << endl;
 				cout << "=====================" << endl << endl;
 				playerTurn();
+				if (statusEffects[0] > 0 || statusEffects[1] > 0 || statusEffects[2] > 0 || statusEffects[3] > 0) {
+
+				}
+				else {
+					cout << endl << "---------------------------------------------------------------";
+				}
 				if (!debug) {
 					Sleep(1500);
 				}
-				cout << endl;
 			}
 			//If enemy attack
 			else if (units[i]->getTYPE() == "Enemy" && units[i]->getHP() != 0) {
 
 				enemyTurn(i);
+				if (statusEffects[0] > 0 || statusEffects[1] > 0 || statusEffects[2] > 0 || statusEffects[3] > 0) {
+
+				}
+				else {
+					cout << endl << "---------------------------------------------------------------";
+				}
 				if (!debug) {
 					Sleep(1500);
 				}
-				cout << endl;
 			}
 			//If ally attack
 			else if (units[i]->getTYPE() == "Ally") {
@@ -83,23 +94,45 @@ void Battle::battle() {
 				int bleedDamage = units[i]->randomNumber(6, 4);
 				if (units[i]->getHP() - bleedDamage <= 0 && units[i]->getTYPE() != "Player") {
 					units[i]->setHP(0);
-					cout << units[i]->getNAME() << " bled out!" << endl;
-
+					cout << endl << units[i]->getNAME() << " bled out!" << endl;
 				}
 				else {
 					units[i]->setHP(units[i]->getHP() - bleedDamage);
-					cout << units[i]->getNAME() << " is bleeding and took " << bleedDamage << " damage! They now have " << units[i]->getHP() << " HP!" << endl;
+					cout << endl << units[i]->getNAME() << " is bleeding and took " << bleedDamage << " damage! They now have " << units[i]->getHP() << " HP!" << endl;
 				}
 				units[i]->setStatusEffects("Bleed", -1);
+				cout << "---------------------------------------------------------------";
 				Sleep(1500);
 			}
-			cout << "---------------------------------------------------------------";
+			//IF POISONED (poison doesn't kill, doesn't go away, and reduces to 1hp at most).
+			if (statusEffects[2] > 0) {
+				int poisonDamage = units[i]->randomNumber(3, 2);
+				if (units[i]->getHP() - poisonDamage <= 0) {
+					if (units[i]->getHP() == 1) {
+						cout << endl << units[i]->getNAME() << " is poisoned and has " << units[i]->getHP() << " HP!" << endl;
+					}
+					else {
+						units[i]->setHP(1);
+						cout << endl << units[i]->getNAME() << " is poisoned and was reduced to " << units[i]->getHP() << " HP!" << endl;
+					}
+
+				}
+				else {
+					units[i]->setHP(units[i]->getHP() - poisonDamage);
+					cout << endl << units[i]->getNAME() << " is poisoned and took " << poisonDamage << " damage! They now have " << units[i]->getHP() << " HP!" << endl;
+				}
+				cout << "---------------------------------------------------------------";
+				Sleep(1500);
+
+			}
+			
 
 		}
 		//Delete enemies if they die.
 		for (int i = 0; i < units.size(); i++) {
 			if (units[i]->getHP() == 0 && units[i]->getTYPE() != "Player") {
 				enemies -= 1;
+				
 				units.erase(units.begin() + i);
 			}
 		}
@@ -472,21 +505,48 @@ int Battle::battleMenu(bool itemUsed) {
 
 		}
 	}
+	if (attackUsed == "Drain Touch") {
+		Sleep(1250);
+		int val = (units[target - 1]->getMAXMP() / 25) * 10;
+		units[0]->recover(val);
+		cout << endl << "Drain Touch recovered " << val << " MP! You now have " << units[0]->getMP() << "/" << units[0]->getMAXMP() << " MP!";
+		if (units[0]->getMP() > units[0]->getMAXMP()) {
+			units[0]->setMP(units[0]->getMAXMP());
+		}
+	}
 	return 1;
 }
 
 
 void Battle::enemyTurn(int i) {
 	vector<int> target = { 0 };
+	vector<int> statusEffects = units[i]->getStatusEffects();
 	int pickTarget;
-	for (int i = 0; i < units.size(); i++) {
-		if (units[i]->getTYPE() == "Player" || units[i]->getTYPE() == "Ally") {
-			target.push_back(i);
+	//IF CONFUSED
+	if (statusEffects[3] > 0) {
+		for (int i = 0; i < units.size(); i++) {
+			if (units[i]->getTYPE() == "Enemy") {
+				target.push_back(i);
+			}
 		}
-
 	}
+	//IF NOT CONFUSED
+	else {
+		for (int i = 0; i < units.size(); i++) {
+			if (units[i]->getTYPE() == "Player" || units[i]->getTYPE() == "Ally") {
+				target.push_back(i);
+			}
+		}
+	}
+
 	if (units[0]->getHP() <= units[i]->getDMG()) {
 		pickTarget = 0;
+	}
+	else if (statusEffects[3] > 0) {
+		pickTarget = units[i]->randomNumber(target.size(), 0);
+		if (pickTarget == 0) {
+			pickTarget = i;
+		}
 	}
 	else {
 		pickTarget = units[i]->randomNumber(target.size() - 1, 0);
@@ -511,11 +571,28 @@ void Battle::enemyTurn(int i) {
 void Battle::dealDamage(int attacker, int defender, string attackname, string statuseffect, int length) {
 	int attack = attacker;
 	int defend = defender;
+	bool confused = false;
 	string attackName = attackname;
 	string statusEffect = statuseffect;
 	int duration = length;
-
-	cout << endl << units[attack]->getNAME() << " attacks " << units[defend]->getNAME() << " with " << attackName << ". ";
+	vector<int> status = units[defender]->getStatusEffects();
+	vector<int> statusAttacker = units[attacker]->getStatusEffects();
+	
+	//IF CONFUSED
+	if (statusAttacker[3] > 0) {
+		cout << endl << units[attack]->getNAME() << " is confused and attacks ";
+		if (attacker == defender) {
+			cout << "themself with " << attackName << ". ";
+		}
+		else {
+			cout << units[defend]->getNAME() << " with " << attackName << ". ";
+		}
+		confused = true;
+		units[attacker]->setStatusEffects("Confusion", -1);
+	}
+	else {
+		cout << endl << units[attack]->getNAME() << " attacks " << units[defend]->getNAME() << " with " << attackName << ". ";
+	}
 	if (units[defender]->getHP() - units[attacker]->getdamage() <= 0) {
 		units[defender]->setHP(0);
 
@@ -524,21 +601,16 @@ void Battle::dealDamage(int attacker, int defender, string attackname, string st
 			gameOver();
 		}
 
-		vector<int> status = units[defender]->getStatusEffects();
-
 		cout << units[defender]->getNAME() << " took " << units[attacker]->getdamage() << " damage and died!";
 		Player* player = units[0]->getPlayer();
 		Weapon weapon = player->getWeapon();
-		
+
+		//Gimmick for Self-sharpening Knife (Calphalon, The Blade of Infinite Trials)
 		if (attackName == "Attack" && weapon.getName() == "Self-sharpening Knife (Calphalon, The Blade of Infinite Trials)") {
-			
 			weapon.increaseDamage();
 			player->setWeapon(weapon);
 			sliceUp++;
-			//cout << "New damage: " << weapon.getDamage() << endl << endl;
 		}
-		enemies -= 1;
-		units.erase(units.begin() + defend);
 		
 	}
 	else {
@@ -553,8 +625,21 @@ void Battle::dealDamage(int attacker, int defender, string attackname, string st
 				units[defender]->setStatusEffects("Bleed", duration);
 				cout << " and is bleeding";
 			}
+			if (statusEffect == "Poison") {
+				units[defender]->setStatusEffects("Poison", duration);
+				cout << " and is poisoned";
+			}
+			if (statusEffect == "Confusion") {
+				units[defender]->setStatusEffects("Confusion", duration);
+				cout << " and is confused";
+			}
 		}
 		cout << "! They now have " << units[defender]->getHP() << "HP.";
+		//Formatting.
+		if (confused) {
+			cout << endl << "---------------------------------------------------------------";
+		}
+
 	}
 
 

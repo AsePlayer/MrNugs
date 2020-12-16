@@ -1,23 +1,10 @@
-﻿  Campaign.cpp
-  DinoNuggetRider.cpp
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\dinonuggetrider.cpp(16): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\dinonuggetrider.cpp(17): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\dinonuggetrider.cpp(18): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\dinonuggetrider.cpp(19): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\dinonuggetrider.cpp(20): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\dinonuggetrider.cpp(21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\dinonuggetrider.cpp(22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\dinonuggetrider.cpp(38): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  Game.cpp
-  MrNugs.cpp
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\mrnugs.cpp(13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  NuggetGuard.cpp
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\nuggetguard.cpp(16): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\nuggetguard.cpp(17): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\nuggetguard.cpp(18): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\nuggetguard.cpp(19): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\nuggetguard.cpp(20): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\nuggetguard.cpp(21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\nuggetguard.cpp(22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  Generating Code...
+﻿  Warrior.cpp
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\warrior.cpp(20): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\warrior.cpp(21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\warrior.cpp(22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\warrior.cpp(23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\warrior.cpp(24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\warrior.cpp(46): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\warrior.cpp(47): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\warrior.cpp(55): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   MrNugs.vcxproj -> C:\Users\AsePlayer\source\repos\MrNugs\x64\Debug\MrNugs.exe
