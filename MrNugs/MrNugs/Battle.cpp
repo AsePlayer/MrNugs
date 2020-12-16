@@ -34,6 +34,7 @@ void Battle::recieveBattle() {
 
 void Battle::gameOver() {
 	playerDied = true;
+	units[0]->updatePlayer(0, 0);
 }
 
 //Battle loop
@@ -65,6 +66,7 @@ void Battle::battle() {
 			}
 			//If enemy attack
 			else if (units[i]->getTYPE() == "Enemy" && units[i]->getHP() != 0) {
+
 				enemyTurn(i);
 				if (!debug) {
 					Sleep(1500);
@@ -103,6 +105,7 @@ void Battle::battle() {
 		}
 	}
 	if (enemies == 0) {
+		//Special condition for Self-sharpening Knife (Calphalon, The Blade of Infinite Trials) damage increase.
 		if (sliceUp > 0) {
 			Sleep(1500);
 			cout << endl << "Your Self-sharpening Knife (Calphalon, The Blade of Infinite Trials)'s sharpened with the slicing of its victims. Damage increased by " << sliceUp << "!" << endl;
@@ -492,13 +495,13 @@ void Battle::enemyTurn(int i) {
 	string attackName = units[i]->customAI(units[pickTarget]->getHP());
 	string statusEffect = "None";
 	int duration = 0;
-	if (attackName == "StunAttack") {
+	if (attackName == "Tail Swipe") {
 		statusEffect = "Stun";
 		duration = 1;
 	}
-	if (attackName == "BleedAttack") {
+	if (attackName == "Bite") {
 		statusEffect = "Bleed";
-		duration = 3;
+		duration = 2;
 	}
 	dealDamage(i, pickTarget, attackName, statusEffect, duration);
 
@@ -513,12 +516,14 @@ void Battle::dealDamage(int attacker, int defender, string attackname, string st
 	int duration = length;
 
 	cout << endl << units[attack]->getNAME() << " attacks " << units[defend]->getNAME() << " with " << attackName << ". ";
-	if (units[0]->getHP() <= 0) {
-		//Player death. call before he gets destroyed to prevent unforseen consequences. call battleDefeat() function.
-		gameOver();
-	}
-	else if (units[defender]->getHP() - units[attacker]->getdamage() <= 0) {
+	if (units[defender]->getHP() - units[attacker]->getdamage() <= 0) {
 		units[defender]->setHP(0);
+
+		if (units[0]->getHP() <= 0) {
+			//Player death. call before he gets destroyed to prevent unforseen consequences. call battleDefeat() function.
+			gameOver();
+		}
+
 		vector<int> status = units[defender]->getStatusEffects();
 
 		cout << units[defender]->getNAME() << " took " << units[attacker]->getdamage() << " damage and died!";
@@ -566,7 +571,7 @@ void Battle::dealSplashDamage(int attacker, vector<int> defenders, string attack
 
 //Player *h = new Player("Mr. Nugs", 3, Stick, {});
 //Sets up turn order.
-void Battle::requestBattle(vector<unique_ptr<Unit>> goodUnits, vector<unique_ptr<Unit>> badUnits) {
+bool Battle::requestBattle(vector<unique_ptr<Unit>> goodUnits, vector<unique_ptr<Unit>> badUnits) {
 	enemies = 0;
 	for (int i = 0; i < goodUnits.size(); i++) {
 		units.emplace_back(move(goodUnits[i]));
@@ -577,6 +582,12 @@ void Battle::requestBattle(vector<unique_ptr<Unit>> goodUnits, vector<unique_ptr
 	}
 
 	recieveBattle();
+	if (playerDied == true) {
+		return true;
+	}
+	else {
+		return false;
+	}
 }
 
 Battle::~Battle()

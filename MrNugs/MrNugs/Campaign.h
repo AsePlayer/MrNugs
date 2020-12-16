@@ -4,6 +4,7 @@
 #include "Unit.h"
 #include "Warrior.h"
 #include "NuggetGuard.h"
+#include "DinoNuggetRider.h"
 #include "FriendlyNuggetGuard.h"
 #include <vector>
 #include <memory>
@@ -22,6 +23,7 @@ private:
 	vector<unique_ptr<Unit>> goodUnits;
 	vector<unique_ptr<Unit>> badUnits;
 	string placeholder;
+	bool playerDead = false;
 
 	//Player instantiation. Create this with save and load data later.
 	
@@ -32,6 +34,6 @@ public:
 	Campaign();
 	~Campaign();
 
-	void progress(Player *h);
+	bool progress(Player *h);
 };
 

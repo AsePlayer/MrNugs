@@ -37,14 +37,37 @@ void Game::beginGame() {
 	
 	while (h->getPosInStory() < gameLength) {
 		
-		controller.progress(h);
-		cout << endl << "Would you like to save the game?" << endl;
-		cout << "[1] Yes" << endl << endl << "[0] No" << endl << endl;
-		cin >> getSaveReq;
-		if (getSaveReq == 1) {
-			ofstream SaveFile("save.txt");
-			saveGame();
+		if (!controller.progress(h)) {
+			cout << endl << endl << "You died! Would you like to retry or load back to previous save?" << endl;
+			cout << endl << "[1] Retry" << endl << "[2] Load Save" << endl << endl;
+			
+			cin >> option;
+			while (option < 1 || option > 2 || cin.fail()) {
+				cin.clear();
+				cin.ignore(256, '\n');
+				cout << "Pick a number between 1 and 2" << endl;
+				cin >> option;
+			}
+
+			if (option == 1) {
+				
+			}
+			else if (option == 2) {
+				loadGame();
+			}
+
+
 		}
+		else {
+			cout << endl << "Would you like to save the game?" << endl;
+			cout << "[1] Yes" << endl << endl << "[0] No" << endl << endl;
+			cin >> getSaveReq;
+			if (getSaveReq == 1) {
+				ofstream SaveFile("save.txt");
+				saveGame();
+			}
+		}
+
 
 	}
 }

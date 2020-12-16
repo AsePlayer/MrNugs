@@ -5,14 +5,13 @@ class NuggetGuard : public Unit
 private:
 	string name = "Nugget Guard";
 	string type = "Enemy";
-	string desc = "This is a Nugget Guard.";
+	string desc = "An aspiring Nugget Guard looking to move up in the ranks.";
 
 	int lvl = 0;
 	vector<Special> moves = 
 	{ 
-		Special{"BleedAttack",75,"mage special description", "Bleed",0}, 
-		Special{"StunAttack",500,"special description2", "None",0}, 
-		Special{"mage Special3",1500,"special description3", "None",0} };
+		Special{"Stab",75,"A fierce stab of a spear. Its damage varies wildly, depending on where you're stabbed.", "None", 0}, 
+	};
 	vector<Special> unlockedMoves = { moves[0] };
 
 	int maxhp = 100;

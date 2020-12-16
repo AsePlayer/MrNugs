@@ -153,6 +153,7 @@
   <ItemGroup>
     <ClInclude Include="Battle.h" />
     <ClInclude Include="Campaign.h" />
+    <ClInclude Include="DinoNuggetRider.h" />
     <ClInclude Include="FriendlyNuggetGuard.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Item.h" />
@@ -169,6 +170,7 @@
   <ItemGroup>
     <ClCompile Include="Battle.cpp" />
     <ClCompile Include="Campaign.cpp" />
+    <ClCompile Include="DinoNuggetRider.cpp" />
     <ClCompile Include="FriendlyNuggetGuard.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Item.cpp" />

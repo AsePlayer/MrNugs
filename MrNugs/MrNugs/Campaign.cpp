@@ -6,11 +6,14 @@ Campaign::Campaign()
 {
 }
 
-void Campaign::progress(Player *h) {
+bool Campaign::progress(Player *h) {
 	Battle battle;
 	Shop shop;
 	int pos = h->getPosInStory();
-	Unit *playerCharacter;
+	Unit *playerCharacter = new Warrior(h);
+
+
+
 	//vector<unique_ptr<Unit>> goodUnits
 	if (h->getCharacterClass() == "Warrior") {
 		playerCharacter = new Warrior(h);
@@ -19,18 +22,19 @@ void Campaign::progress(Player *h) {
 	case 0:
 		//Dialogue test
 		cout << "Mr. Nugs was a man who loved to eat chicken nuggets." << endl;
+		cout << "Insert story here" << endl << endl;
 		Sleep(2000);
-		cout << "2 Nugget Guards wish to engage in the fisticuffs with you." << endl;
 		break;
 
 	case 1:
+		cout << "2 Nugget Guards wish to engage in the fisticuffs with you." << endl;
 		//Battle test
 		goodUnits.emplace_back(playerCharacter);
 		//goodUnits.emplace_back(new FriendlyNuggetGuard(10));
 		badUnits.emplace_back(new NuggetGuard(1));
 		badUnits.emplace_back(new NuggetGuard(1));
 
-		battle.requestBattle(move(goodUnits), move(badUnits));
+		playerDead = battle.requestBattle(move(goodUnits), move(badUnits));
 		break;
 
 	case 2:
@@ -40,13 +44,13 @@ void Campaign::progress(Player *h) {
 		break;
 
 	case 3:
-		cout << "2 Slightly Better Nugget Guards wish to avenge their fallen comrades." << endl;
+		cout << "A Dino Nugget Rider wishes to avenge their fallen comrades!" << endl;
 		goodUnits.emplace_back(new Warrior(h));
 		
-		badUnits.emplace_back(new NuggetGuard(3));
+		badUnits.emplace_back(new DinoNuggetRider(1));
 		badUnits.emplace_back(new NuggetGuard(2));
 
-		battle.requestBattle(move(goodUnits), move(badUnits));
+		playerDead = battle.requestBattle(move(goodUnits), move(badUnits));
 		break;
 
 	default:
@@ -56,9 +60,18 @@ void Campaign::progress(Player *h) {
 	goodUnits.clear();
 	badUnits.clear();
 
-	pos++;
-	h->setPosInStory(pos);
+	//Don't progress game if player died.
+	if (playerDead) {
+		playerDead = false;
+		return false;
+	}
+	else {
+		pos++;
+		h->setPosInStory(pos);
+		return true;
+	}
 
+	
 
 }
 

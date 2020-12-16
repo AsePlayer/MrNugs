@@ -57,6 +57,9 @@
     <ClInclude Include="FriendlyNuggetGuard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DinoNuggetRider.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -99,6 +102,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FriendlyNuggetGuard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DinoNuggetRider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

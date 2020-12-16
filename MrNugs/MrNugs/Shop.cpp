@@ -138,7 +138,7 @@ int Shop::displayDeals(Player *player) {
 			}
 			//If selling current weapon at half price + current money still doesn't pay for weapon, deny the purchase.
 			else if ((player->getMoney() + (currentWeapon.getPrice() / 2)) < weaponsForSale[option - 1].getPrice()) {
-				cout << "\"Yer pockets ain't deep enough, laddy. \"" << endl;
+				cout << "\"Yer pockets ain't deep enough, laddy.\"" << endl;
 			}
 			else {
 				cout << "Pick a number between 1 and " << weaponsForSale.size() << endl;
@@ -157,9 +157,10 @@ int Shop::displayDeals(Player *player) {
 			cout << "DMG: " << weaponsForSale[option - 1].getDamage() << endl;
 			cout << "Cost: " << weaponsForSale[option - 1].getPrice() << endl;
 			cout << "--------------------------------------" << endl << endl;
+			Sleep(1500);
 
 			while ((player->getMoney() + (currentWeapon.getPrice() / 2)) < weaponsForSale[option - 1].getPrice()) {
-				cout << "\"Yer pockets ain't deep enough, laddy. \"" << endl;
+				cout << "\"Yer pockets ain't deep enough, laddy.\"" << endl;
 			}
 
 			cout << "Sell your " << currentWeapon.getName() << " for " << currentWeapon.getPrice() / 2 << " gold and purchase " << weaponsForSale[option - 1].getName() << " for " << weaponsForSale[option - 1].getPrice() << " gold?" << endl;
@@ -229,7 +230,7 @@ int Shop::displayDeals(Player *player) {
 			cout << "Description: " << items[option - 1].getDescription() << endl;
 			cout << "Cost: " << items[option - 1].getPrice() << endl;
 			cout << "--------------------------------------" << endl << endl;
-
+			Sleep(1500);
 			while (player->getMoney() < items[option - 1].getPrice()) {
 				cout << "\"Yer pockets ain't deep enough, laddy. \"" << endl;
 			}
@@ -272,8 +273,6 @@ int Shop::randomNumber(int num, int plus) {
 
 void Shop::requestShop(Player *player) {
 	cout << endl << "Welcome to the Shop!" << endl << "====================" << endl << endl;
-
-
 	shop(player);
 
 	cout << endl << "\"See ya later!\"" << endl << endl;

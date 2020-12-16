@@ -1,0 +1,23 @@
+<name>
+Mr. Nugs
+</name>
+<lvl>
+1
+</lvl>
+<weapon>
+Used Toothpick
+5
+A used toothpick. One side is still wet... ew.
+2
+</weapon>
+<money>
+100
+</money>
+<items>
+</items>
+<class>
+Warrior
+</class>
+<pos>
+1
+</pos>

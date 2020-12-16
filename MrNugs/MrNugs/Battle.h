@@ -67,7 +67,7 @@ public:
 	~Battle();
 	//Player *h = new Player("Mr. Nugs", 3, Stick, {});
 	//Sets up turn order.
-	void requestBattle(vector<unique_ptr<Unit>> goodUnits, vector<unique_ptr<Unit>> badUnits);
+	bool requestBattle(vector<unique_ptr<Unit>> goodUnits, vector<unique_ptr<Unit>> badUnits);
 	
 };
 
