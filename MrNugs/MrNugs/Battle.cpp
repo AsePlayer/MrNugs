@@ -8,7 +8,7 @@ Battle::Battle()
 
 void Battle::recieveBattle() {
 	int counter = 1;
-	bool original = true;
+	bool original = false;
 	//Calculates Rewards
 	for (int i = 0; i < units.size(); i++) {
 		xpReward += units[i]->getXP();
@@ -18,13 +18,14 @@ void Battle::recieveBattle() {
 	for (int i = 0; i < units.size(); i++) {
 		for (int j = 0; j < units.size(); j++) {
 			if (units[i]->getNAME() == units[j]->getNAME() && i != j) {
-				if (original == true) {
-					original = false;
-					units[i]->setNAME(units[i]->getNAME() + " " + to_string(1));
-				}
+				original = true;
 				counter++;
 				units[j]->setNAME(units[j]->getNAME() + " " + to_string(counter));
 			}
+		}
+		if (original == true) {
+			units[i]->setNAME(units[i]->getNAME() + " " + to_string(1));
+			original = false;
 		}
 		counter = 1;
 	}
@@ -41,6 +42,10 @@ void Battle::gameOver() {
 void Battle::battle() {
 	while (enemies != 0 && playerDied == false) {
 		for (int i = 0; i < units.size(); i++) {
+			if (units[0]->getHP() == 0) {
+				playerDied = true;
+				break;
+			}
 			vector<int> statusEffects = units[i]->getStatusEffects();
 			//cout << "Bleed counter: " << statusEffects[0];
 			//IF STUNNED
@@ -86,7 +91,17 @@ void Battle::battle() {
 			}
 			//If ally attack
 			else if (units[i]->getTYPE() == "Ally") {
-
+				vector<int> targets = {};
+				for (int j = 0; j < units.size(); j++) {
+					if (units[j]->getTYPE() == "Enemy") {
+						targets.push_back(j);
+					}
+				}
+				int pickTarget = randomNumber(targets.size(),0);
+				string attackName = units[i]->customAI(units[targets[pickTarget]]->getHP());
+				dealDamage(i, targets[pickTarget], attackName, "None", 0);
+				cout << endl << "---------------------------------------------------------------";
+				Sleep(1500);
 			}
 			//IF BLEEDING
 			statusEffects = units[i]->getStatusEffects();
@@ -179,12 +194,14 @@ void Battle::playerTurn() {
 
 int Battle::battleMenu(bool itemUsed) {
 	vector<Special> specials;
+	vector<int> statusEffects;
 	int numberFormat = 1;
 	int numberFormatCorrection = 0;
 	int option = 0;
 	string attackUsed;
 	string statusEffect;
 	int duration;
+	int effected = 0;
 
 	//Displays what broad action the Player would like to do
 	cout << "What would you like to do?" << endl << endl;
@@ -291,6 +308,26 @@ int Battle::battleMenu(bool itemUsed) {
 			else {
 				//If not stun, give the effect no matter what.
 				statusEffect = moves[option - 1].getEffect();
+
+				if (moves[option - 1].getName() == "Arrow of ???") {
+					int randomly = randomNumber(4, 0);
+					
+					if (randomly == 0) {
+						statusEffect = "Bleed";
+					}
+					else if (randomly == 1) {
+						statusEffect = "Poison";
+					}
+					else if (randomly == 2) {
+						statusEffect = "Stun";
+					}
+					else if (randomly == 3) {
+						statusEffect = "Confusion";
+					}
+					else {
+						cout << "BROKEN BROKEN BROKEN";
+					}
+				}
 			}
 		
 			duration = moves[option - 1].getDuration();
@@ -450,6 +487,33 @@ int Battle::battleMenu(bool itemUsed) {
 			cout << specials[i].getName() << " - " << specials[i].getDescription() << endl;
 		}
 
+		cout << endl << "Status Effects:" << endl;
+		statusEffects = units[target - 1]->getStatusEffects();
+		for (int i = 0; i < statusEffects.size(); i++) {
+			if (statusEffects[i] > 0) {
+				effected++;
+			}
+		}
+		if (effected == 0) {
+			cout << "None" << endl;
+		}
+		else {
+			//int bleed, stun, poison, confusion;
+			if (statusEffects[0] > 0) {
+				cout << "Bleeding: " << statusEffects[0] << endl;
+			}
+			if (statusEffects[1] > 0) {
+				cout << "Stunned: " << statusEffects[1] << endl;
+			}
+			if (statusEffects[2] > 0) {
+				cout << "Poisoned: Infinite" << endl;
+			}
+			if (statusEffects[3] > 0) {
+				cout << "Confused: " << statusEffects[3] << endl;
+			}
+
+		}
+
 		cout << endl << "[0] Back" << endl << endl;
 
 		cin >> target;
@@ -464,14 +528,19 @@ int Battle::battleMenu(bool itemUsed) {
 	cout << endl << "Who would you like to attack?" << endl;
 	//Displays target options.
 	numberFormat = 1;
-	numberFormatCorrection = 0;
+	numberFormatCorrection = 1;
 	for (int i = 0; i < units.size(); i++) {
-		if (units[i]->getTYPE() == "Player" || units[i]->getTYPE() == "Ally") {
+		if (units[i]->getTYPE() == "Ally") {
 			numberFormatCorrection++;
+			SetConsoleTextAttribute(hConsole, 8);
+			cout << "[X]: " << units[i]->getNAME() << " (" << units[i]->getHP() << "/" << units[i]->getMAXHP() << " HP)" << endl;
+			SetConsoleTextAttribute(hConsole, 7);
 		}
 		else {
-			cout << "[" << numberFormat << "]: " << units[i]->getNAME() << " (" << units[i]->getHP() << "/" << units[i]->getMAXHP() << " HP)" << endl;
-			numberFormat++;
+			if (units[i]->getTYPE() != "Player") {
+				cout << "[" << numberFormat << "]: " << units[i]->getNAME() << " (" << units[i]->getHP() << "/" << units[i]->getMAXHP() << " HP)" << endl;
+				numberFormat++;
+			}
 		}
 
 	}
@@ -480,7 +549,7 @@ int Battle::battleMenu(bool itemUsed) {
 	//Pick target
 	cin >> target;
 	//Don't allow anything not an int or not in the range.
-	while (target < 0 || target >(units.size()) - numberFormatCorrection || cin.fail()) {
+	while (target < 0 || target > (units.size()) - numberFormatCorrection || cin.fail()) {
 		cin.clear();
 		cin.ignore(256, '\n');
 		cout << "Pick a number between 1 and " << (units.size()) - numberFormatCorrection << endl;
@@ -495,7 +564,7 @@ int Battle::battleMenu(bool itemUsed) {
 		statusEffect = "None";
 		duration = 0;
 	}
-	dealDamage(0, target, attackUsed, statusEffect, duration);
+	dealDamage(0, target + numberFormatCorrection - 1, attackUsed, statusEffect, duration);
 	if (attackUsed == "Bloodshed") {
 		if (enemies != 0) {
 			Sleep(1000);
@@ -512,6 +581,66 @@ int Battle::battleMenu(bool itemUsed) {
 		cout << endl << "Drain Touch recovered " << val << " MP! You now have " << units[0]->getMP() << "/" << units[0]->getMAXMP() << " MP!";
 		if (units[0]->getMP() > units[0]->getMAXMP()) {
 			units[0]->setMP(units[0]->getMAXMP());
+		}
+	}
+	if (attackUsed == "Toxic Fangs") {
+		Sleep(1500);
+		int val = (units[target - 1]->getMAXHP() / 25) * 3;
+		units[0]->heal(val);
+		cout << endl << "Toxic Fangs healed " << val << " HP! You now have " << units[0]->getHP() << "/" << units[0]->getMAXHP() << " HP!";
+		if (units[0]->getHP() > units[0]->getMAXHP()) {
+			units[0]->setHP(units[0]->getMAXHP());
+		}
+	}
+	if (attackUsed == "Steal") {
+		Item item = Item("Ketchup Packet", 100, 75, "\"Heals 100 HP\"", "HP");
+		int goldValue = 0;
+		Sleep(1500);
+		int rng = randomNumber(100,1);
+		if (rng < 70) {
+			goldValue += units[target - 1]->getGOLD() / 3;
+			goldValue += randomNumber(3, 5);
+			goldReward += goldValue;
+			cout << endl << "Steal's haul was " << goldValue << " gold!";
+		}
+		else {
+			if (rng > 70 && rng < 75) {
+				item = Item("Ketchup Packet", 100, 75, "\"Heals 100 HP\"", "HP");
+			}
+			else if (rng > 75 && rng < 80) {
+				item = (Item("Mustard Packet", 100, 75, "\"Recovers 100 MP\"", "MP"));
+			}
+			else if (rng > 80 && rng < 85) {
+				item = (Item("Thousand Island Packet", 250, 150, "\"Heals and Recovers 150 HP and MP\"", "HP&MP"));
+			}
+			else if (rng > 85 && rng < 89) {
+				item = (Item("Ketchup Bottle", 300, 250, "\"Heals 250 HP\"", "HP"));
+			}
+			else if (rng > 89 && rng < 94) {
+				item = (Item("Mustard Bottle", 300, 300, "\"Recovers 250 MP\"", "MP"));
+			}
+			else if (rng > 94 && rng < 99) {
+				item = (Item("Ranch Bottle", 0, 450, "\"Cures all status effects\"", "Cure"));
+			}
+			else {
+				item = (Item("Thousand Island Bottle", 500, 1000, "\"Heals and Recovers 500 HP and MP\"", "HP&MP"));
+			}
+			cout << endl << "Steal's haul was 1 " << item.getName() << "!";
+			units[0]->addItems(item);
+		}
+
+	}
+	if (attackUsed == "Arrow Rain") {
+		if (enemies != 0) {
+			Sleep(1000);
+			for (int i = 0; i < units.size(); i++) {
+				if (units[i]->getTYPE() == "Enemy") {
+					units[0]->setMP(units[0]->getMP() + 100);
+					units[0]->decideDamage(moves[option - 1].getName());
+					dealDamage(0, i , attackUsed, statusEffect, duration);
+					Sleep(1000);
+				}
+			}
 		}
 	}
 	return 1;

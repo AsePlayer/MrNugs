@@ -45,6 +45,8 @@ public:
 
 	virtual vector<Item> getItems();
 
+	virtual void addItems(Item items);
+
 	virtual void removeItem(int num);
 
 	virtual void updatePlayer(int exp, int gold);

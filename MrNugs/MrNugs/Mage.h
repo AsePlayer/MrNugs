@@ -12,9 +12,9 @@ private:
 
 	vector<Special> moves =
 	{
-		Special{"Big damage", 100, "An enormous ball of raw, unfiltered energy. Damage scales with current MP." ,"None", 0},
+		Special{"Misery's End", 100, "An enormous ball of raw, unfiltered energy. Damage scales with current MP." ,"None", 0},
 		Special{"Drain Touch", 25, "Steal MP from an unsuspecting victim. MP gained scales with the victim's MAX MP.", "None", 0},
-		Special{"Delerium", 5, "Confuses an enemy, resulting in them targeting anyone but you, including themself.", "Confusion", 1 + lvl / 10}
+		Special{"Delerium", 45, "Confuses an enemy, resulting in them targeting anyone but you, including themself.", "Confusion", 1 + lvl / 5}
 	};
 
 	vector<Special> unlockedMoves = {};
@@ -26,7 +26,7 @@ private:
 	int hp = maxhp;
 	int maxmp = 250;
 	int mp = maxmp;
-	int dmg = 10;
+	int dmg = 5;
 	int def = 0;
 
 	//Reward Values

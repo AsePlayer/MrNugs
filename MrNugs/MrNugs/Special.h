@@ -19,5 +19,6 @@ public:
 	string getDescription();
 	string getEffect();
 	int getDuration();
+	void setEffect(string effect);
 };
 

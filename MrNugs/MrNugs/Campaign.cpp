@@ -21,6 +21,12 @@ bool Campaign::progress(Player *h) {
 	else if (h->getCharacterClass() == "Mage") {
 		playerCharacter = new Mage(h);
 	}
+	else if (h->getCharacterClass() == "Thief") {
+		playerCharacter = new Thief(h);
+	}
+	else if (h->getCharacterClass() == "Archer") {
+		playerCharacter = new Archer(h);
+	}
 	switch (pos) {
 	case 0:
 		//Dialogue test
@@ -73,7 +79,7 @@ bool Campaign::progress(Player *h) {
 		Sleep(1500);
 		//Battle test
 		goodUnits.emplace_back(playerCharacter);
-		//goodUnits.emplace_back(new FriendlyNuggetGuard(10));
+		goodUnits.emplace_back(new FriendlyNuggetGuard(10));
 		badUnits.emplace_back(new NuggetGuard(1));
 		badUnits.emplace_back(new NuggetGuard(1));
 

@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Archer.h" />
     <ClInclude Include="Battle.h" />
     <ClInclude Include="Campaign.h" />
     <ClInclude Include="DinoNuggetRider.h" />
@@ -164,11 +165,13 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="Shop.h" />
     <ClInclude Include="Special.h" />
+    <ClInclude Include="Thief.h" />
     <ClInclude Include="Unit.h" />
     <ClInclude Include="Warrior.h" />
     <ClInclude Include="Weapon.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Archer.cpp" />
     <ClCompile Include="Battle.cpp" />
     <ClCompile Include="Campaign.cpp" />
     <ClCompile Include="DinoNuggetRider.cpp" />
@@ -187,6 +190,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Shop.cpp" />
     <ClCompile Include="Special.cpp" />
+    <ClCompile Include="Thief.cpp" />
     <ClCompile Include="Unit.cpp" />
     <ClCompile Include="Warrior.cpp" />
     <ClCompile Include="Weapon.cpp" />

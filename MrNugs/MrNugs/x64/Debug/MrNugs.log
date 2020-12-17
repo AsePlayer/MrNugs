@@ -1,10 +1,7 @@
-﻿  Warrior.cpp
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\warrior.cpp(20): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\warrior.cpp(21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\warrior.cpp(22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\warrior.cpp(23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\warrior.cpp(24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\warrior.cpp(46): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\warrior.cpp(47): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\warrior.cpp(55): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+﻿  Battle.cpp
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.cpp(100): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.cpp(573): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.cpp(675): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.cpp(681): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.cpp(793): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
   MrNugs.vcxproj -> C:\Users\AsePlayer\source\repos\MrNugs\x64\Debug\MrNugs.exe

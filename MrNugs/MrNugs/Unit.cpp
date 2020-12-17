@@ -21,6 +21,10 @@ int Unit::randomNumber(int num, int plus) {
 	return (rand() % num + plus);
 }
 
+void Unit::addItems(Item items) {
+
+}
+
 string Unit::customAI(int HP) {
 	return "Default";
 }

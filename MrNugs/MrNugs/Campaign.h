@@ -4,6 +4,8 @@
 #include "Unit.h"
 #include "Warrior.h"
 #include "Mage.h"
+#include "Thief.h"
+#include "Archer.h"
 #include "NuggetGuard.h"
 #include "DinoNuggetRider.h"
 #include "FriendlyNuggetGuard.h"

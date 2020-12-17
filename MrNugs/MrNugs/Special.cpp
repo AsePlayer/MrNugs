@@ -26,6 +26,9 @@ string Special::getEffect() {
 int Special::getDuration() {
 	return duration;
 }
+void Special::setEffect(string effect) {
+	this->effect = effect;
+}
 
 
 Special::~Special()

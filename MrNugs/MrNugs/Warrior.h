@@ -13,7 +13,7 @@ private:
 	vector<Special> moves = 
 	{ 
 		Special{"Bloodshed", 70,"Hack and slash at the enemy with two powerful swings, injuring anyone who dares stand in your way.","None", 0}, 
-		Special{"Shield Bash", 25,"Strike the enemies head with an intense swipe of your shield. Chance to cause stun.","Stun", 1 + lvl/10}, 
+		Special{"Shield Bash", 25,"Strike the enemies head with an intense swipe of your shield. Chance to cause stun.","Stun", 1 + lvl/5}, 
 		Special{"Last Stand", 100, "A lethal attack that becomes stronger the more damaged you are.", "None", 0} 
 	};
 
@@ -24,7 +24,7 @@ private:
 	Player *player;
 	int maxhp = 250;
 	int hp = maxhp;
-	int maxmp = 200;
+	int maxmp = 150;
 	int mp = maxmp;
 	int dmg = 20;
 	int def = 10;

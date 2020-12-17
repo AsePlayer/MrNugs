@@ -16,7 +16,7 @@ A used toothpick. One side is still wet... ew.
 <items>
 </items>
 <class>
-Warrior
+Archer
 </class>
 <pos>
 1
