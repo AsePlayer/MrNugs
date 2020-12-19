@@ -1,3 +1,6 @@
+//Ryan Scott
+//CST - 210 : Fantasy Fighting Game
+//This file and project are my own work
 #pragma once
 #include "Unit.h"
 #include "Player.h"
@@ -12,9 +15,9 @@ private:
 
 	vector<Special> moves =
 	{
-		Special{"Transfix", 50, "Pierce your enemy with a sharp blade, inflicting the bleeding status effect." ,"Bleed", 2 + lvl/5},
 		Special{"Steal", 25, "Rob your enemy of extra gold, (and in rare cases, items) while dealing moderate damage.", "None", 0},
-		Special{"Toxic Fangs", 75, "Steal a portion of your enemies HP. Causes the poison status effect.", "Poison", 1}
+		Special{"Transfix", 50, "Pierce your enemy with a sharp blade, inflicting the bleeding status effect." ,"Bleed", 2 + lvl/5},
+		Special{"Toxic Fangs", 25, "Steal a portion of your enemies HP. Causes the poison status effect.", "Poison", 1}
 	};
 
 	vector<Special> unlockedMoves = {};

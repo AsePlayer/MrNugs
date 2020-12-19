@@ -1,3 +1,6 @@
+//Ryan Scott
+//CST - 210 : Fantasy Fighting Game
+//This file and project are my own work
 #pragma once
 #include "Unit.h"
 class FriendlyNuggetGuard : public Unit
@@ -5,17 +8,17 @@ class FriendlyNuggetGuard : public Unit
 private:
 	string name = "Friendly Nugget Guard";
 	string type = "Ally";
-	string desc = "This is a Nugget Guard.";
+	string desc = "A Nugget Guard who's decided to team up with you. Who would've thought?";
 
 	int lvl = 0;
-	vector<Special> moves =
-	{
-		Special{"Special",75,"mage special description", "None",0},
-		Special{"mage Special2",500,"special description2", "None",0},
-		Special{"mage Special3",1500,"special description3", "None",0} };
+	vector<Special> moves = 
+	{ 
+		Special{"Stab",75,"A fierce stab of a spear. Its damage varies wildly, depending on where you're stabbed.", "None", 0}, 
+	};
+
 	vector<Special> unlockedMoves = { moves[0] };
 
-	int maxhp = 100;
+	int maxhp = 300;
 	int hp = maxhp;
 	int maxmp = 200;
 	int mp = maxmp;

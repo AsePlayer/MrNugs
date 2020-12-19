@@ -1,3 +1,6 @@
+//Ryan Scott
+//CST - 210 : Fantasy Fighting Game
+//This file and project are my own work
 #include "pch.h"
 #include "Weapon.h"
 

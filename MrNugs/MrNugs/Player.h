@@ -1,3 +1,6 @@
+//Ryan Scott
+//CST - 210 : Fantasy Fighting Game
+//This file and project are my own work
 #pragma once
 #include "Player.h"
 #include "Weapon.h"
@@ -12,14 +15,14 @@ private:
 	int lvl;
 	int money;
 	int exp;
-	vector<int> expThresholds{0,10,50,100};
+	vector<int> expThresholds{0,10,50,75,100,150,200,250,500,1000};
 	Weapon weapon = Weapon("default",0,"default constructor", 0);
 	vector<Item> items = {};
 	string characterClass;
 	int posInStory;
 	//vector for items later
 public:
-	Player(string name, int lvl, Weapon weapon, int money, vector<Item> items, string characterClass, int posInStory);
+	Player(string name, int lvl, int exp, Weapon weapon, int money, vector<Item> items, string characterClass, int posInStory);
 	~Player();
 
 	string getName();
@@ -29,6 +32,8 @@ public:
 	int getPosInStory();
 	
 	int getLVL();
+
+	int getEXP();
 
 	Weapon getWeapon();
 

@@ -1,3 +1,6 @@
+//Ryan Scott
+//CST - 210 : Fantasy Fighting Game
+//This file and project are my own work
 #include "pch.h"
 #include "DinoNuggetRider.h"
 
@@ -50,7 +53,8 @@ string DinoNuggetRider::customAI(int HP) {
 		decideDamage(moves[0].getName());
 		return moves[0].getName();
 	}
-	else if (rng == 2 && getMP() >= moves[1].getMPCost()) {
+	else if (rng == 2 && getMP() >= moves[1].getMPCost() && !swiped) {
+		swiped = true;
 		decideDamage(moves[1].getName());
 		return moves[1].getName();
 	}
@@ -59,6 +63,7 @@ string DinoNuggetRider::customAI(int HP) {
 		return moves[2].getName();
 	}
 	else {
+		swiped = false;
 		decideDamage("Attack");
 		return "Attack";
 	}

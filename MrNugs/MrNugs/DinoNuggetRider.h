@@ -1,3 +1,6 @@
+//Ryan Scott
+//CST - 210 : Fantasy Fighting Game
+//This file and project are my own work
 #pragma once
 #include "Unit.h"
 class DinoNuggetRider : public Unit
@@ -24,8 +27,10 @@ private:
 	int def = 0;
 
 	//Reward Values
-	int gold = 250;
-	int xp = 25;
+	int gold = 125;
+	int xp = 35;
+
+	bool swiped = false;
 
 
 public:

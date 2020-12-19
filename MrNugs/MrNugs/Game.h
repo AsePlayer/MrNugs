@@ -1,3 +1,6 @@
+//Ryan Scott
+//CST - 210 : Fantasy Fighting Game
+//This file and project are my own work
 #pragma once
 #include "pch.h"
 #include <iostream>
@@ -15,8 +18,8 @@ using namespace std;
 class Game
 {
 private:
-	Player *h = new Player("Mr. Nugs", 1, Weapon("Stick", 5, "Weapon #1", 50), 100, { Item("Ketchup Packet", 100, 50, "Heals 100 HP", "HP") }, "Warrior", 0);
-	int gameLength = 4;
+	Player *h = new Player("Mr. Nugs", 1, 1, Weapon("Stick", 5, "Weapon #1", 50), 100, { Item("Ketchup Packet", 100, 50, "Heals 100 HP", "HP") }, "Warrior", 0);
+	int gameLength = 23;
 	vector<string> classes = {
 		"Warrior",
 		"Mage",

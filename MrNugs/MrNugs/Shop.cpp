@@ -1,3 +1,6 @@
+//Ryan Scott
+//CST - 210 : Fantasy Fighting Game
+//This file and project are my own work
 #include "pch.h"
 #include "Shop.h"
 #include "Player.h"
@@ -61,19 +64,19 @@ void Shop::shop(Player *player) {
 
 
 	//Remove items from item pool depending on what point of the story player is at.
-	if (player->getPosInStory() < 7) {
+	if (player->getPosInStory() < 16) {
 		items.erase(items.begin() + 6);
 	}
-	if (player->getPosInStory() < 6) {
+	if (player->getPosInStory() < 14) {
 		items.erase(items.begin() + 5);
 	}
-	if (player->getPosInStory() < 5) {
+	if (player->getPosInStory() < 10) {
 		items.erase(items.begin() + 4);
 	}
-	if (player->getPosInStory() < 4) {
+	if (player->getPosInStory() < 6) {
 		items.erase(items.begin() + 3);
 	}
-	if (player->getPosInStory() < 3) {
+	if (player->getPosInStory() < 4) {
 		items.erase(items.begin() + 2);
 	}
 

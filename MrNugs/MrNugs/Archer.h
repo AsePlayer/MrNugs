@@ -1,3 +1,6 @@
+//Ryan Scott
+//CST - 210 : Fantasy Fighting Game
+//This file and project are my own work
 #pragma once
 #include "Unit.h"
 #include "Player.h"
@@ -14,7 +17,7 @@ private:
 	{
 		Special{"Critical Strike", 75, "Pierce thy enemies heart. Or something else important. Either way, it's gonna hurt." , "None", 0},
 		Special{"Arrow of ???", 55, "Shoot the enemy with a random arrow, causes a random status effect.", "None", 1 + lvl / 5},
-		Special{"Arrow Rain", 100, "Rain a volley of arrows upon all of your enemies!", "None", 1}
+		Special{"Arrow Rain", 125, "Rain a volley of arrows upon all of your enemies!", "None", 1}
 	};
 
 	vector<Special> unlockedMoves = {};

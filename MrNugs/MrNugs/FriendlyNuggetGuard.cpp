@@ -1,3 +1,6 @@
+//Ryan Scott
+//CST - 210 : Fantasy Fighting Game
+//This file and project are my own work
 #include "pch.h"
 #include "FriendlyNuggetGuard.h"
 
@@ -31,16 +34,15 @@ void FriendlyNuggetGuard::decideDamage(string attackName) {
 		setdamage(getDMG() + randomNumber(5, 2));
 	}
 	else if (attackName == moves[0].getName() && getMP() >= moves[0].getMPCost()) {
-		setdamage(getDMG() + (2 * randomNumber(8, 4)));
+		setdamage(getDMG() + (3 * randomNumber(8, 4)));
 		setMP(getMP() - moves[0].getMPCost());
 	}
 }
 string FriendlyNuggetGuard::customAI(int HP) {
 	//cout << endl << "DEFAULT AI" << endl;
-	if (randomNumber(4, 0) == 0 && getMP() >= 75) {
-		decideDamage("Special");
-		//cout << "Special";
-		return "Special";
+	if (randomNumber(4, 0) >= 1 && getMP() >= moves[0].getMPCost()) {
+		decideDamage(moves[0].getName());
+		return moves[0].getName();
 	}
 	else {
 		decideDamage("Attack");

@@ -1,3 +1,6 @@
+//Ryan Scott
+//CST - 210 : Fantasy Fighting Game
+//This file and project are my own work
 #include "pch.h"
 #include "Unit.h"
 
@@ -174,7 +177,7 @@ void Unit::setIsDead(bool dead) {
 }
 
 Player* Unit::getPlayer() {
-	Player* h = new Player{ "Mr. Nugs", 1, Weapon("Used Toothpick", 5, "A used toothpick. One side is still wet... ew.", 2), 100 , {}, "Warrior", 0 };
+	Player* h = new Player{ "Mr. Nugs", 1, 0, Weapon("Used Toothpick", 5, "A used toothpick. One side is still wet... ew.", 2), 100 , {}, "Warrior", 0 };
 	return h;
 }
 

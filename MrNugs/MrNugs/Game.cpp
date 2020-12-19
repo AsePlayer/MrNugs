@@ -1,3 +1,6 @@
+//Ryan Scott
+//CST - 210 : Fantasy Fighting Game
+//This file and project are my own work
 #include "pch.h"
 #include "Game.h"
 
@@ -36,8 +39,46 @@ void Game::beginGame() {
 	int getSaveReq;
 	
 	while (h->getPosInStory() < gameLength) {
-		
+		vector<Item> items = h->getItems();
 		if (!controller.progress(h)) {
+			int position = h->getPosInStory();
+			switch(position) {
+			case 1:
+				cout << endl << endl << "Tip: Prioritize 1 target to get them out of the battle quickly!" << endl;
+				break;
+			case 3:
+				cout << endl << endl << "Tip: You can buy HP and MP potions in the shop to heal and recover during battle!" << endl;
+				break;
+			case 5:
+				cout << endl << endl << "Tip: The Executioner can't Execute twice in a row! Use this to your advantage!" << endl;
+				break;
+			case 7:
+				cout << endl << endl << "Tip: Once Guacamole Guru uses his Pit Launch, he's pretty useless. Use this to your advantage!" << endl;
+				break;
+			case 9:
+				cout << endl << endl << "Tip: Purchasing a new weapon is a great way to deal more damage in less turns." << endl;
+				break;
+			case 11:
+				cout << endl << endl << "Tip: The Dino Nugget Rider will win a long and drawn out fight. Try to end it as fast as possible!" << endl;
+				break;
+			case 13:
+				cout << endl << endl << "Tip: Jason WhitHAM's gold value increases every time he uses Cease and Desist! Save him for last!" << endl;
+				break;
+			case 15:
+				cout << endl << endl << "Tip: Take out the weaker enemies first to be dealt less damage over time!" << endl;
+				break;
+			case 17:
+				cout << endl << endl << "Tip: Make sure you have plenty of Potions and use Status Effects whenever possible!" << endl;
+				break;
+			case 19:
+				cout << endl << endl << "Tip: The Maker is too dumb to be affected by the Confused status effect." << endl;
+				break;
+			case 21:
+				cout << endl << endl << "Tip: Confusion and Stun have a chance to work on The Behemoth." << endl;
+				break;
+			}
+			
+			
 			cout << endl << endl << "You died! Would you like to retry or load back to previous save?" << endl;
 			cout << endl << "[1] Retry" << endl << "[2] Load Save" << endl << endl;
 			
@@ -50,7 +91,7 @@ void Game::beginGame() {
 			}
 
 			if (option == 1) {
-				
+				h->setItems(items);
 			}
 			else if (option == 2) {
 				loadGame();
@@ -87,7 +128,7 @@ void Game::newGame() {
 		cin >> option;
 	}
 
-	h = new Player{"Mr. Nugs", 1, Weapon("Used Toothpick", 5, "\"A used toothpick. One side is still wet... ew.\"", 2), 100 , {}, classes[option - 1], 0};
+	h = new Player{"Mr. Nugs", 1, 0, Weapon("Used Toothpick", 5, "\"A used toothpick. One side is still wet... ew.\"", 2), 100 , {}, classes[option - 1], 0};
 	cout << endl << "--- You have chosen the path of the " << classes[option - 1] << " ---" << endl << endl;
 	Sleep(1500);
 }
@@ -100,7 +141,7 @@ void Game::saveGame() {
 	ofstream SaveFile("save.txt");
 	SaveFile << "<name>" << endl << h->getName() << endl << "</name>" << endl;
 	SaveFile << "<lvl>" << endl << h->getLVL() << endl << "</lvl>" << endl;
-
+	SaveFile << "<exp>" << endl << h->getEXP() << endl << "</exp>" << endl;
 	//Build weapon in save.
 	//Weapon(string name, int damage, string description, int price);
 	SaveFile << "<weapon>" << endl;
@@ -135,6 +176,7 @@ void Game::loadGame() {
 
 	string name;
 	int lvl;
+	int exp;
 	Weapon weapon = {"",1,"",1};
 	int money;
 	vector<Item> items = {};
@@ -161,6 +203,10 @@ void Game::loadGame() {
 			getline(LoadFile, text);
 			//string-to-integer
 			lvl = stoi(text);
+		}
+		if (text == "<exp>") {
+			getline(LoadFile, text);
+			exp = stoi(text);
 		}
 		if (text == "<weapon>") {
 			getline(LoadFile, text);
@@ -206,7 +252,7 @@ void Game::loadGame() {
 		}
 
 	}//Player(string name, int lvl, Weapon weapon, int money, vector<Item> items, string characterClass, int posInStory)
-	h = new Player{name,lvl,weapon,money,items,characterClass,posInStory};
+	h = new Player{name,lvl, exp, weapon,money,items,characterClass,posInStory};
 }
 
 

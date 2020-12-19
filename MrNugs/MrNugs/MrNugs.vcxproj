@@ -151,18 +151,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AlanGrahamcracker.h" />
     <ClInclude Include="Archer.h" />
     <ClInclude Include="Battle.h" />
+    <ClInclude Include="BrockoliWhite.h" />
     <ClInclude Include="Campaign.h" />
+    <ClInclude Include="Chicken.h" />
+    <ClInclude Include="ChipperChip.h" />
+    <ClInclude Include="DexMex.h" />
     <ClInclude Include="DinoNuggetRider.h" />
     <ClInclude Include="FriendlyNuggetGuard.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GuacamoleGuru.h" />
+    <ClInclude Include="Human.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="JasonWhitHAM.h" />
     <ClInclude Include="Mage.h" />
+    <ClInclude Include="NuggetExecutioner.h" />
     <ClInclude Include="NuggetGuard.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="SalsaSam.h" />
     <ClInclude Include="Shop.h" />
     <ClInclude Include="Special.h" />
     <ClInclude Include="Thief.h" />
@@ -171,14 +181,23 @@
     <ClInclude Include="Weapon.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AlanGrahamcracker.cpp" />
     <ClCompile Include="Archer.cpp" />
     <ClCompile Include="Battle.cpp" />
+    <ClCompile Include="BrockoliWhite.cpp" />
     <ClCompile Include="Campaign.cpp" />
+    <ClCompile Include="Chicken.cpp" />
+    <ClCompile Include="ChipperChip.cpp" />
+    <ClCompile Include="DexMex.cpp" />
     <ClCompile Include="DinoNuggetRider.cpp" />
     <ClCompile Include="FriendlyNuggetGuard.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GuacamoleGuru.cpp" />
+    <ClCompile Include="Human.cpp" />
     <ClCompile Include="Item.cpp" />
+    <ClCompile Include="JasonWhitHAM.cpp" />
     <ClCompile Include="Mage.cpp" />
+    <ClCompile Include="NuggetExecutioner.cpp" />
     <ClCompile Include="NuggetGuard.cpp" />
     <ClCompile Include="MrNugs.cpp" />
     <ClCompile Include="pch.cpp">
@@ -188,6 +207,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="SalsaSam.cpp" />
     <ClCompile Include="Shop.cpp" />
     <ClCompile Include="Special.cpp" />
     <ClCompile Include="Thief.cpp" />

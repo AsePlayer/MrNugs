@@ -1,3 +1,6 @@
+//Ryan Scott
+//CST - 210 : Fantasy Fighting Game
+//This file and project are my own work
 #pragma once
 #include "pch.h"
 #include <iostream>
@@ -8,6 +11,20 @@
 #include "Archer.h"
 #include "NuggetGuard.h"
 #include "DinoNuggetRider.h"
+#include "NuggetExecutioner.h"
+
+#include "ChipperChip.h"
+#include "SalsaSam.h"
+#include "GuacamoleGuru.h"
+
+#include "JasonWhitHAM.h"
+#include "BrockoliWhite.h"
+#include "AlanGrahamcracker.h"
+#include "DexMex.h"
+
+#include "Chicken.h"
+#include "Human.h"
+
 #include "FriendlyNuggetGuard.h"
 #include <vector>
 #include <memory>

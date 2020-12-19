@@ -69,6 +69,36 @@
     <ClInclude Include="Archer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="NuggetExecutioner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChipperChip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SalsaSam.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GuacamoleGuru.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="JasonWhitHAM.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BrockoliWhite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DexMex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AlanGrahamcracker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Chicken.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Human.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -123,6 +153,36 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Archer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NuggetExecutioner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChipperChip.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SalsaSam.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GuacamoleGuru.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="JasonWhitHAM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BrockoliWhite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DexMex.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AlanGrahamcracker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Chicken.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Human.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

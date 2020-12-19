@@ -1,3 +1,6 @@
+//Ryan Scott
+//CST - 210 : Fantasy Fighting Game
+//This file and project are my own work
 #include "pch.h"
 #include "Mage.h"
 
@@ -29,10 +32,10 @@ Mage::Mage(Player *p)
 	if (getLVL() > 0) {
 		unlockedMoves.push_back(moves[0]);
 	}
-	if (getLVL() > 3) {
+	if (getLVL() > 2) {
 		unlockedMoves.push_back(moves[1]);
 	}
-	if (getLVL() > 6) {
+	if (getLVL() > 5) {
 		unlockedMoves.push_back(moves[2]);
 	}
 
@@ -43,7 +46,7 @@ void Mage::decideDamage(string attackName) {
 		setdamage(getDMG() + weapon.getDamage() + randomNumber(6, 2));
 	}
 	else if (attackName == moves[0].getName() && getMP() >= (moves[0].getMPCost())) {
-		setdamage(getDMG() + (weapon.getDamage()) + ((getMP() / 50) * randomNumber(3, 10)));
+		setdamage(getDMG() + (weapon.getDamage()) + ((getMP() / 40) * randomNumber(3, 10)));
 		setMP(getMP() - (moves[0].getMPCost()));
 	}
 	else if (attackName == moves[1].getName() && getMP() >= moves[1].getMPCost()) {
@@ -82,7 +85,7 @@ void Mage::setWeapon(Weapon weapon) {
 
 void Mage::updatePlayer(int exp, int gold) {
 	player->updateEXP(exp);
-	*player = { player->getName(),player->getLVL(),player->getWeapon(), player->getMoney() + gold, items, player->getCharacterClass(), player->getPosInStory() };
+	*player = { player->getName(),player->getLVL(), player->getEXP(),player->getWeapon(), player->getMoney() + gold, items, player->getCharacterClass(), player->getPosInStory() };
 	//Player *h = new Player("Mr. Nugs", 3, Stick, {});
 
 }

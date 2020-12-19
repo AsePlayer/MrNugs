@@ -1,7 +1,157 @@
-﻿  Battle.cpp
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.cpp(100): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.cpp(573): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.cpp(675): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.cpp(681): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.cpp(793): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+﻿  AlanGrahamcracker.cpp
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\alangrahamcracker.cpp(19): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\alangrahamcracker.cpp(20): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\alangrahamcracker.cpp(21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\alangrahamcracker.cpp(22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\alangrahamcracker.cpp(23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\alangrahamcracker.cpp(24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\alangrahamcracker.cpp(25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\alangrahamcracker.cpp(37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Archer.cpp
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\archer.cpp(23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\archer.cpp(24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\archer.cpp(25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\archer.cpp(26): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\archer.cpp(27): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Battle.cpp
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.cpp(97): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.cpp(147): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.cpp(587): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.cpp(591): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.cpp(700): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.cpp(706): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\battle.cpp(837): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  BrockoliWhite.cpp
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\brockoliwhite.cpp(19): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\brockoliwhite.cpp(20): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\brockoliwhite.cpp(21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\brockoliwhite.cpp(22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\brockoliwhite.cpp(23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\brockoliwhite.cpp(24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\brockoliwhite.cpp(25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Campaign.cpp
+  Chicken.cpp
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\chicken.cpp(19): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\chicken.cpp(20): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\chicken.cpp(21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\chicken.cpp(22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\chicken.cpp(23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\chicken.cpp(24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\chicken.cpp(25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  ChipperChip.cpp
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\chipperchip.cpp(19): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\chipperchip.cpp(20): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\chipperchip.cpp(21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\chipperchip.cpp(22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\chipperchip.cpp(23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\chipperchip.cpp(24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\chipperchip.cpp(25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  DexMex.cpp
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\dexmex.cpp(19): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\dexmex.cpp(20): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\dexmex.cpp(21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\dexmex.cpp(22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\dexmex.cpp(23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\dexmex.cpp(24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\dexmex.cpp(25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  DinoNuggetRider.cpp
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\dinonuggetrider.cpp(19): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\dinonuggetrider.cpp(20): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\dinonuggetrider.cpp(21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\dinonuggetrider.cpp(22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\dinonuggetrider.cpp(23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\dinonuggetrider.cpp(24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\dinonuggetrider.cpp(25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\dinonuggetrider.cpp(41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  FriendlyNuggetGuard.cpp
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\friendlynuggetguard.cpp(19): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\friendlynuggetguard.cpp(20): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\friendlynuggetguard.cpp(21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\friendlynuggetguard.cpp(22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\friendlynuggetguard.cpp(23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\friendlynuggetguard.cpp(24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\friendlynuggetguard.cpp(25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Game.cpp
+  GuacamoleGuru.cpp
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\guacamoleguru.cpp(19): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\guacamoleguru.cpp(20): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\guacamoleguru.cpp(21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\guacamoleguru.cpp(22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\guacamoleguru.cpp(23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\guacamoleguru.cpp(24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\guacamoleguru.cpp(25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Human.cpp
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\human.cpp(19): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\human.cpp(20): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\human.cpp(21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\human.cpp(22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\human.cpp(23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\human.cpp(24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\human.cpp(25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Item.cpp
+  JasonWhitHAM.cpp
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\jasonwhitham.cpp(19): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\jasonwhitham.cpp(20): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\jasonwhitham.cpp(21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\jasonwhitham.cpp(22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\jasonwhitham.cpp(23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\jasonwhitham.cpp(24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\jasonwhitham.cpp(25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Mage.cpp
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\mage.cpp(23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\mage.cpp(24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\mage.cpp(25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\mage.cpp(26): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\mage.cpp(27): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  MrNugs.cpp
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\mrnugs.cpp(15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  NuggetExecutioner.cpp
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\nuggetexecutioner.cpp(19): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\nuggetexecutioner.cpp(20): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\nuggetexecutioner.cpp(21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\nuggetexecutioner.cpp(22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\nuggetexecutioner.cpp(23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\nuggetexecutioner.cpp(24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\nuggetexecutioner.cpp(25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  NuggetGuard.cpp
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\nuggetguard.cpp(19): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\nuggetguard.cpp(20): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\nuggetguard.cpp(21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\nuggetguard.cpp(22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\nuggetguard.cpp(23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\nuggetguard.cpp(24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\nuggetguard.cpp(25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Player.cpp
+  Generating Code...
+  Compiling...
+  SalsaSam.cpp
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\salsasam.cpp(19): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\salsasam.cpp(20): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\salsasam.cpp(21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\salsasam.cpp(22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\salsasam.cpp(23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\salsasam.cpp(24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\salsasam.cpp(25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Shop.cpp
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\shop.cpp(34): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\shop.cpp(43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  Special.cpp
+  Thief.cpp
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\thief.cpp(23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\thief.cpp(24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\thief.cpp(25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\thief.cpp(26): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\thief.cpp(27): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Unit.cpp
+  Warrior.cpp
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\warrior.cpp(23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\warrior.cpp(24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\warrior.cpp(25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\warrior.cpp(26): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\warrior.cpp(27): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\warrior.cpp(49): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\warrior.cpp(50): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\aseplayer\source\repos\mrnugs\mrnugs\warrior.cpp(58): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Weapon.cpp
+  Generating Code...
   MrNugs.vcxproj -> C:\Users\AsePlayer\source\repos\MrNugs\x64\Debug\MrNugs.exe

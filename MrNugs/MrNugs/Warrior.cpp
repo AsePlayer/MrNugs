@@ -1,3 +1,6 @@
+//Ryan Scott
+//CST - 210 : Fantasy Fighting Game
+//This file and project are my own work
 #include "pch.h"
 #include "Warrior.h"
 
@@ -29,10 +32,10 @@ Warrior::Warrior(Player *p)
 	if (getLVL() > 0) {
 		unlockedMoves.push_back(moves[0]);
 	}
-	if (getLVL() > 3) {
+	if (getLVL() > 2) {
 		unlockedMoves.push_back(moves[1]);
 	}
-	if (getLVL() > 6) {
+	if (getLVL() > 5) {
 		unlockedMoves.push_back(moves[2]);
 	}
 
@@ -83,7 +86,7 @@ void Warrior::setWeapon(Weapon weapon) {
 
 void Warrior::updatePlayer(int exp, int gold) {
 	player->updateEXP(exp);
-	*player = { player->getName(),player->getLVL(),player->getWeapon(), player->getMoney() + gold, items, player->getCharacterClass(), player->getPosInStory()};
+	*player = { player->getName(),player->getLVL(),player->getEXP(),player->getWeapon(), player->getMoney() + gold, items, player->getCharacterClass(), player->getPosInStory()};
 	//Player *h = new Player("Mr. Nugs", 3, Stick, {});
 
 }
